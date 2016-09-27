@@ -24,7 +24,9 @@
     "dotkernel/dot-authorization": "0.6.x-dev",
     "dotkernel/dot-authentication": "0.6.x-dev",
     "dotkernel/dot-navigation": "0.6.x-dev",
-    "dotkernel/dot-flashmessenger": "0.6.x-dev"
+    "dotkernel/dot-flashmessenger": "0.6.x-dev",
+
+    "zendframework/zend-form": "^2.9"
   },
   "autoload": {
     "psr-4": {

@@ -12,6 +12,7 @@ namespace Dot\Twig;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
+use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
 use Dot\Twig\Factory\AuthenticationExtensionFactory;
 use Dot\Twig\Factory\AuthorizationExtensionFactory;
@@ -19,6 +20,7 @@ use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Zend\View\HelperPluginManagerFactory;
 use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\View\HelperPluginManager;
 
 
@@ -47,6 +49,7 @@ class ConfigProvider
                 AuthorizationExtension::class => AuthorizationExtensionFactory::class,
                 NavigationExtension::class => NavigationExtensionFactory::class,
                 FlashMessengerExtension::class => FlashMessengerExtensionFactory::class,
+                FormElementsExtension::class => InvokableFactory::class,
             ],
 
             'delegators' => [

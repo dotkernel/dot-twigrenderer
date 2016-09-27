@@ -17,9 +17,11 @@ use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
+use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
 use Interop\Container\ContainerInterface;
 use Zend\Expressive\Twig\TwigRenderer;
+use Zend\Form\Form;
 use Zend\View\HelperPluginManager;
 use Zend\View\Renderer\PhpRenderer;
 
@@ -78,6 +80,10 @@ class TwigRendererDelegator
 
             if($container->has(FlashMessengerRenderer::class)) {
                 $environment->addExtension($container->get(FlashMessengerExtension::class));
+            }
+
+            if(class_exists(Form::class)) {
+                $environment->addExtension($container->get(FormElementsExtension::class));
             }
         }
     }
