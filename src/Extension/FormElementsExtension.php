@@ -99,7 +99,7 @@ class FormElementsExtension extends \Twig_Extension
     {
         $tests = [];
         foreach ($this->formElements as $element => $class) {
-            $tests[] = new \Twig_SimpleTest('is' . $element, function($value) use($class) {
+            $tests[] = new \Twig_SimpleTest('is' . $element, function ($value) use ($class) {
                 return ($value instanceof $class);
             });
         }

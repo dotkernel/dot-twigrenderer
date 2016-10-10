@@ -18,7 +18,7 @@ use Dot\Authentication\AuthenticationInterface;
  */
 class AuthenticationExtension extends \Twig_Extension
 {
-    /** @var AuthenticationInterface  */
+    /** @var AuthenticationInterface */
     protected $authentication;
 
     /**

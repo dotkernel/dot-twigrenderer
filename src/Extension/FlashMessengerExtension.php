@@ -18,7 +18,7 @@ use Dot\FlashMessenger\View\FlashMessengerRenderer;
  */
 class FlashMessengerExtension extends \Twig_Extension
 {
-    /** @var FlashMessengerRenderer  */
+    /** @var FlashMessengerRenderer */
     protected $renderer;
 
     /**

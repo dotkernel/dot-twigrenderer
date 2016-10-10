@@ -40,7 +40,7 @@ class TwigRendererDelegator
     public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
     {
         $renderer = call_user_func($callback);
-        if($renderer instanceof TwigRenderer) {
+        if ($renderer instanceof TwigRenderer) {
             $reflectionClass = new \ReflectionClass(TwigRenderer::class);
             $reflectionProperty = $reflectionClass->getProperty('template');
             $reflectionProperty->setAccessible(true);
@@ -54,35 +54,35 @@ class TwigRendererDelegator
             $zfRenderer = new PhpRenderer();
             $zfRenderer->setHelperPluginManager($viewHelperManager);
             $environment->registerUndefinedFunctionCallback(
-                function($name) use ($viewHelperManager, $zfRenderer) {
-                    if(!$viewHelperManager->has($name)) {
+                function ($name) use ($viewHelperManager, $zfRenderer) {
+                    if (!$viewHelperManager->has($name)) {
                         return false;
                     }
 
                     $callable = [$zfRenderer->plugin($name), '__invoke'];
-                    $options  = ['is_safe' => ['html']];
+                    $options = ['is_safe' => ['html']];
                     return new \Twig_SimpleFunction(null, $callable, $options);
                 }
             );
 
             //add our default extensions, if dependencies are present
-            if($container->has(AuthenticationInterface::class)) {
+            if ($container->has(AuthenticationInterface::class)) {
                 $environment->addExtension($container->get(AuthenticationExtension::class));
             }
 
-            if($container->has(AuthorizationInterface::class)) {
+            if ($container->has(AuthorizationInterface::class)) {
                 $environment->addExtension($container->get(AuthorizationExtension::class));
             }
 
-            if($container->has(NavigationRenderer::class)) {
+            if ($container->has(NavigationRenderer::class)) {
                 $environment->addExtension($container->get(NavigationExtension::class));
             }
 
-            if($container->has(FlashMessengerRenderer::class)) {
+            if ($container->has(FlashMessengerRenderer::class)) {
                 $environment->addExtension($container->get(FlashMessengerExtension::class));
             }
 
-            if(class_exists(Form::class)) {
+            if (class_exists(Form::class)) {
                 $environment->addExtension($container->get(FormElementsExtension::class));
             }
         }
