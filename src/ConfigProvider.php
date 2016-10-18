@@ -9,6 +9,8 @@
 
 namespace Dot\Twig;
 
+use Dot\FlashMessenger\View\FlashMessengerRenderer;
+use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
@@ -21,6 +23,7 @@ use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Zend\View\HelperPluginManagerFactory;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
 
 
@@ -55,6 +58,19 @@ class ConfigProvider
             'delegators' => [
                 TemplateRendererInterface::class => [
                     TwigRendererDelegator::class,
+                ],
+                NavigationRenderer::class => [
+                    LazyServiceFactory::class,
+                ],
+                FlashMessengerRenderer::class => [
+                    LazyServiceFactory::class,
+                ]
+            ],
+
+            'lazy_services' => [
+                'class_map' => [
+                    NavigationRenderer::class => NavigationRenderer::class,
+                    FlashMessengerRenderer::class => FlashMessengerRenderer::class,
                 ]
             ],
 
