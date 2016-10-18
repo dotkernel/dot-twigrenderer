@@ -58,7 +58,7 @@ class ConfigProvider
                 ]
             ],
 
-            'alias' => [
+            'aliases' => [
                 'ViewHelperManager' => HelperPluginManager::class,
             ],
         ];
