@@ -86,5 +86,7 @@ class TwigRendererDelegator
                 $environment->addExtension($container->get(FormElementsExtension::class));
             }
         }
+
+        return $renderer;
     }
 }
