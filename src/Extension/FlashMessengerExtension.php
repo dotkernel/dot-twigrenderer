@@ -9,8 +9,7 @@
 
 namespace Dot\Twig\Extension;
 
-
-use Dot\FlashMessenger\View\FlashMessengerRenderer;
+use Dot\FlashMessenger\View\RendererInterface;
 
 /**
  * Class FlashMessengerExtension
@@ -18,7 +17,7 @@ use Dot\FlashMessenger\View\FlashMessengerRenderer;
  */
 class FlashMessengerExtension extends \Twig_Extension
 {
-    /** @var FlashMessengerRenderer */
+    /** @var RendererInterface */
     protected $renderer;
 
     /**
@@ -31,9 +30,9 @@ class FlashMessengerExtension extends \Twig_Extension
 
     /**
      * FlashMessengerExtension constructor.
-     * @param FlashMessengerRenderer $renderer
+     * @param RendererInterface $renderer
      */
-    public function __construct(FlashMessengerRenderer $renderer)
+    public function __construct(RendererInterface $renderer)
     {
         $this->renderer = $renderer;
     }

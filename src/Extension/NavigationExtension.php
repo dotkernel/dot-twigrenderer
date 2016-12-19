@@ -9,10 +9,9 @@
 
 namespace Dot\Twig\Extension;
 
-
 use Dot\Navigation\NavigationContainer;
 use Dot\Navigation\Page;
-use Dot\Navigation\View\NavigationRenderer;
+use Dot\Navigation\View\RendererInterface;
 
 /**
  * Class NavigationExtension
@@ -21,15 +20,15 @@ use Dot\Navigation\View\NavigationRenderer;
 class NavigationExtension extends \Twig_Extension
 {
     /**
-     * @var NavigationRenderer
+     * @var RendererInterface
      */
     protected $navigationRenderer;
 
     /**
      * NavigationExtension constructor.
-     * @param NavigationRenderer $navigationRenderer
+     * @param RendererInterface $navigationRenderer
      */
-    public function __construct(NavigationRenderer $navigationRenderer)
+    public function __construct(RendererInterface $navigationRenderer)
     {
         $this->navigationRenderer = $navigationRenderer;
     }

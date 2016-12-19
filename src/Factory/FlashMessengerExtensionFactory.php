@@ -9,8 +9,7 @@
 
 namespace Dot\Twig\Factory;
 
-
-use Dot\FlashMessenger\View\FlashMessengerRenderer;
+use Dot\FlashMessenger\View\RendererInterface;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Interop\Container\ContainerInterface;
 
@@ -26,6 +25,6 @@ class FlashMessengerExtensionFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        return new FlashMessengerExtension($container->get(FlashMessengerRenderer::class));
+        return new FlashMessengerExtension($container->get(RendererInterface::class));
     }
 }

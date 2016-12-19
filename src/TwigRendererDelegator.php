@@ -36,6 +36,7 @@ class TwigRendererDelegator
      * @param $name
      * @param callable $callback
      * @param array|null $options
+     * @return mixed
      */
     public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
     {

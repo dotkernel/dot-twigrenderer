@@ -9,8 +9,7 @@
 
 namespace Dot\Twig\Factory;
 
-
-use Dot\Navigation\View\NavigationRenderer;
+use Dot\Navigation\View\RendererInterface;
 use Dot\Twig\Extension\NavigationExtension;
 use Interop\Container\ContainerInterface;
 
@@ -26,7 +25,7 @@ class NavigationExtensionFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        $navigationMenu = $container->get(NavigationRenderer::class);
+        $navigationMenu = $container->get(RendererInterface::class);
         return new NavigationExtension($navigationMenu);
     }
 }
