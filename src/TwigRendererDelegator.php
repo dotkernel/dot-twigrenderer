@@ -12,8 +12,6 @@ namespace Dot\Twig;
 
 use Dot\Authentication\AuthenticationInterface;
 use Dot\Authorization\AuthorizationInterface;
-use Dot\FlashMessenger\View\FlashMessengerRenderer;
-use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
@@ -75,11 +73,11 @@ class TwigRendererDelegator
                 $environment->addExtension($container->get(AuthorizationExtension::class));
             }
 
-            if ($container->has(NavigationRenderer::class)) {
+            if ($container->has(\Dot\Navigation\View\RendererInterface::class)) {
                 $environment->addExtension($container->get(NavigationExtension::class));
             }
 
-            if ($container->has(FlashMessengerRenderer::class)) {
+            if ($container->has(\Dot\FlashMessenger\View\RendererInterface::class)) {
                 $environment->addExtension($container->get(FlashMessengerExtension::class));
             }
 
