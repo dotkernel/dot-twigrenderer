@@ -21,14 +21,6 @@ class FlashMessengerExtension extends \Twig_Extension
     protected $renderer;
 
     /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'dot-flashmessenger';
-    }
-
-    /**
      * FlashMessengerExtension constructor.
      * @param RendererInterface $renderer
      */
@@ -38,15 +30,29 @@ class FlashMessengerExtension extends \Twig_Extension
     }
 
     /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'dot-flashmessenger';
+    }
+
+    /**
      * @return array
      */
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('flashMessagesRender',
-                [$this, 'renderFlashMessages'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('flashMessagesPartial',
-                [$this, 'renderFlashMessagesPartial'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction(
+                'flashMessagesRender',
+                [$this, 'renderFlashMessages'],
+                ['is_safe' => ['html']]
+            ),
+            new \Twig_SimpleFunction(
+                'flashMessagesPartial',
+                [$this, 'renderFlashMessagesPartial'],
+                ['is_safe' => ['html']]
+            ),
         ];
     }
 

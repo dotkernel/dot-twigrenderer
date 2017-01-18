@@ -67,8 +67,11 @@ class ConfigProvider
 
             'lazy_services' => [
                 'class_map' => [
-                    \Dot\Navigation\View\RendererInterface::class => \Dot\Navigation\View\RendererInterface::class,
-                    \Dot\FlashMessenger\View\RendererInterface::class => \Dot\FlashMessenger\View\RendererInterface::class,
+                    \Dot\Navigation\View\RendererInterface::class =>
+                        \Dot\Navigation\View\RendererInterface::class,
+
+                    \Dot\FlashMessenger\View\RendererInterface::class =>
+                        \Dot\FlashMessenger\View\RendererInterface::class,
                 ]
             ],
 

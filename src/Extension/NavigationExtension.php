@@ -75,5 +75,4 @@ class NavigationExtension extends \Twig_Extension
     {
         return $this->navigationRenderer->renderPartial($container, $partial, $extra);
     }
-
 }

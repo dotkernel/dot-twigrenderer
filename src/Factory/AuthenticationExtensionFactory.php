@@ -9,7 +9,6 @@
 
 namespace Dot\Twig\Factory;
 
-
 use Dot\Authentication\AuthenticationInterface;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Interop\Container\ContainerInterface;
