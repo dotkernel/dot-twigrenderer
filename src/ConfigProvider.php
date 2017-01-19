@@ -24,7 +24,6 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
 
-
 /**
  * Class ConfigProvider
  * @package Dot\Twig
