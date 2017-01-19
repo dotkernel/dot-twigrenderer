@@ -9,7 +9,6 @@
 
 namespace Dot\Twig\Extension;
 
-
 use Dot\Authentication\AuthenticationInterface;
 
 /**
@@ -55,5 +54,4 @@ class AuthenticationExtension extends \Twig_Extension
     {
         return $this->authentication->getIdentity();
     }
-
 }

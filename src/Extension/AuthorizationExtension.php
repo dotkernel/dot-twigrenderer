@@ -9,7 +9,6 @@
 
 namespace Dot\Twig\Extension;
 
-
 use Dot\Authorization\AuthorizationInterface;
 
 /**

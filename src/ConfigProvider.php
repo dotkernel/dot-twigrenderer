@@ -24,7 +24,6 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
 
-
 /**
  * Class ConfigProvider
  * @package Dot\Twig
@@ -67,8 +66,11 @@ class ConfigProvider
 
             'lazy_services' => [
                 'class_map' => [
-                    \Dot\Navigation\View\RendererInterface::class => \Dot\Navigation\View\RendererInterface::class,
-                    \Dot\FlashMessenger\View\RendererInterface::class => \Dot\FlashMessenger\View\RendererInterface::class,
+                    \Dot\Navigation\View\RendererInterface::class =>
+                        \Dot\Navigation\View\RendererInterface::class,
+
+                    \Dot\FlashMessenger\View\RendererInterface::class =>
+                        \Dot\FlashMessenger\View\RendererInterface::class,
                 ]
             ],
 
