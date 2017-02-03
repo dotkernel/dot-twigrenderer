@@ -7,8 +7,12 @@
  * Time: 9:05 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig;
 
+use Dot\FlashMessenger\View\RendererInterface as FlashMessengerRendererInterface;
+use Dot\Navigation\View\RendererInterface as NavigationRendererInterface;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
@@ -19,7 +23,7 @@ use Dot\Twig\Factory\AuthorizationExtensionFactory;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Zend\View\HelperPluginManagerFactory;
-use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\Expressive\Twig\TwigEnvironmentFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
@@ -30,7 +34,7 @@ use Zend\View\HelperPluginManager;
  */
 class ConfigProvider
 {
-    public function __invoke()
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
@@ -39,7 +43,7 @@ class ConfigProvider
         ];
     }
 
-    public function getDependencyConfig()
+    public function getDependencyConfig(): array
     {
         return [
             'factories' => [
@@ -53,24 +57,25 @@ class ConfigProvider
             ],
 
             'delegators' => [
-                TemplateRendererInterface::class => [
-                    TwigRendererDelegator::class,
+                TwigEnvironmentFactory::class => [
+                    TwigEnvironmentDelegator::class,
                 ],
-                \Dot\FlashMessenger\View\RendererInterface::class => [
+
+                FlashMessengerRendererInterface::class => [
                     LazyServiceFactory::class,
                 ],
-                \Dot\Navigation\View\RendererInterface::class => [
+                NavigationRendererInterface::class => [
                     LazyServiceFactory::class,
                 ]
             ],
 
             'lazy_services' => [
                 'class_map' => [
-                    \Dot\Navigation\View\RendererInterface::class =>
-                        \Dot\Navigation\View\RendererInterface::class,
+                    NavigationRendererInterface::class =>
+                        NavigationRendererInterface::class,
 
-                    \Dot\FlashMessenger\View\RendererInterface::class =>
-                        \Dot\FlashMessenger\View\RendererInterface::class,
+                    FlashMessengerRendererInterface::class =>
+                        FlashMessengerRendererInterface::class,
                 ]
             ],
 

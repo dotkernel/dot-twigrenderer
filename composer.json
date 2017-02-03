@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^5.6 || ^7.0",
+    "php": "^7.1",
     "container-interop/container-interop": "^1.1",
     "zendframework/zend-expressive-twigrenderer": "^1.1",
     "zendframework/zend-view": "^2.8",
@@ -21,10 +21,10 @@
     "phpunit/phpunit": "^4.8",
     "squizlabs/php_codesniffer": "^2.3",
 
-    "dotkernel/dot-authorization": "0.6.x-dev",
-    "dotkernel/dot-authentication": "0.6.x-dev",
-    "dotkernel/dot-navigation": "0.6.x-dev",
-    "dotkernel/dot-flashmessenger": "0.6.x-dev",
+    "dotkernel/dot-authorization": "dev-develop as 0.6.x-dev",
+    "dotkernel/dot-authentication": "dev-develop as 0.6.x-dev",
+    "dotkernel/dot-navigation": "dev-develop as 0.6.x-dev",
+    "dotkernel/dot-flashmessenger": "dev-develop as 0.6.x-dev",
 
     "zendframework/zend-form": "^2.9"
 

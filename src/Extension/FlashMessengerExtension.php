@@ -7,8 +7,11 @@
  * Time: 10:01 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Extension;
 
+use Dot\FlashMessenger\FlashMessengerInterface;
 use Dot\FlashMessenger\View\RendererInterface;
 
 /**
@@ -32,47 +35,55 @@ class FlashMessengerExtension extends \Twig_Extension
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return 'dot-flashmessenger';
+        return 'dot-messenger';
     }
 
     /**
      * @return array
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction(
-                'flashMessagesRender',
-                [$this, 'renderFlashMessages'],
+                'messages',
+                [$this, 'renderMessages'],
                 ['is_safe' => ['html']]
             ),
             new \Twig_SimpleFunction(
-                'flashMessagesPartial',
-                [$this, 'renderFlashMessagesPartial'],
+                'messagesPartial',
+                [$this, 'renderMessagesPartial'],
                 ['is_safe' => ['html']]
             ),
         ];
     }
 
     /**
-     * @param null $namespace
+     * @param string|null $type
+     * @param string $channel
      * @return string
      */
-    public function renderFlashMessages($namespace = null)
-    {
-        return $this->renderer->renderMessages($namespace);
+    public function renderMessages(
+        string $type = null,
+        string $channel = FlashMessengerInterface::DEFAULT_CHANNEL
+    ): string {
+        return $this->renderer->render($type, $channel);
     }
 
     /**
-     * @param $partial
-     * @param null $namespace
-     * @param array $extra
+     * @param string $partial
+     * @param array $params
+     * @param string|null $type
+     * @param string $channel
      * @return string
      */
-    public function renderFlashMessagesPartial($partial, $namespace = null, array $extra = [])
-    {
-        return $this->renderer->renderPartial($partial, $namespace, $extra);
+    public function renderMessagesPartial(
+        string $partial,
+        array $params = [],
+        string $type = null,
+        string $channel = FlashMessengerInterface::DEFAULT_CHANNEL
+    ): string {
+        return $this->renderer->renderPartial($partial, $params, $type, $channel);
     }
 }

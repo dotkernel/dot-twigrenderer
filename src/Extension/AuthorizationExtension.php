@@ -7,6 +7,8 @@
  * Time: 8:49 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Extension;
 
 use Dot\Authorization\AuthorizationInterface;
@@ -27,7 +29,7 @@ class AuthorizationExtension extends \Twig_Extension
         $this->authorization = $authorization;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'dot-authorization';
     }
@@ -35,7 +37,7 @@ class AuthorizationExtension extends \Twig_Extension
     /**
      * @return array
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction('isGranted', [$this, 'isGranted']),
@@ -45,10 +47,10 @@ class AuthorizationExtension extends \Twig_Extension
     /**
      * @param $permission
      * @param array $roles
-     * @param null $context
+     * @param mixed $context
      * @return bool
      */
-    public function isGranted($permission, array $roles = [], $context = null)
+    public function isGranted(string $permission, array $roles = [], mixed $context = null)
     {
         return $this->authorization->isGranted($permission, $roles, $context);
     }

@@ -7,6 +7,8 @@
  * Time: 8:49 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Factory;
 
 use Dot\Navigation\View\RendererInterface;

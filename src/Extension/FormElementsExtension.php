@@ -7,6 +7,8 @@
  * Time: 9:05 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Extension;
 
 use Zend\Form\Element\Button;
@@ -87,7 +89,7 @@ class FormElementsExtension extends \Twig_Extension
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'dot-form';
     }
@@ -95,7 +97,7 @@ class FormElementsExtension extends \Twig_Extension
     /**
      * @return array
      */
-    public function getTests()
+    public function getTests(): array
     {
         $tests = [];
         foreach ($this->formElements as $element => $class) {

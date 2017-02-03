@@ -7,9 +7,10 @@
  * Time: 8:49 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Extension;
 
-use Dot\Navigation\NavigationContainer;
 use Dot\Navigation\Page;
 use Dot\Navigation\View\RendererInterface;
 
@@ -33,17 +34,17 @@ class NavigationExtension extends \Twig_Extension
         $this->navigationRenderer = $navigationRenderer;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'dot-navigation';
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('navigationMenu', [$this, 'renderMenu'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('navigationPartial', [$this, 'renderPartial'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('navigationPageAttributes', [$this, 'htmlAttributes'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('navigation', [$this, 'renderMenu'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('navigationPartial', [$this, 'renderMenuPartial'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('pageAttributes', [$this, 'htmlAttributes'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -51,28 +52,28 @@ class NavigationExtension extends \Twig_Extension
      * @param Page $page
      * @return mixed
      */
-    public function htmlAttributes(Page $page)
+    public function htmlAttributes(Page $page): string
     {
         return $this->navigationRenderer->htmlAttributes($page->getAttributes());
     }
 
     /**
-     * @param null|string|NavigationContainer $container
+     * @param string $container
      * @return string
      */
-    public function renderMenu($container = null)
+    public function renderMenu(string $container): string
     {
-        return $this->navigationRenderer->renderMenu($container);
+        return $this->navigationRenderer->render($container);
     }
 
     /**
-     * @param null|string|NavigationContainer $container
+     * @param string $container
      * @param string $partial
-     * @param array $extra
+     * @param array $params
      * @return string
      */
-    public function renderPartial($container = null, $partial = null, array $extra = [])
+    public function renderPartial(string $container, string $partial, array $params = []): string
     {
-        return $this->navigationRenderer->renderPartial($container, $partial, $extra);
+        return $this->navigationRenderer->renderPartial($container, $partial, $params);
     }
 }

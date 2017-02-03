@@ -7,6 +7,8 @@
  * Time: 8:14 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Zend\View;
 
 use Interop\Container\ContainerInterface;
