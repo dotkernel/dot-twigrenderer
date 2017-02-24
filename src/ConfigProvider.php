@@ -23,7 +23,6 @@ use Dot\Twig\Factory\AuthorizationExtensionFactory;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Zend\View\HelperPluginManagerFactory;
-use Zend\Expressive\Twig\TwigEnvironmentFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
@@ -57,7 +56,7 @@ class ConfigProvider
             ],
 
             'delegators' => [
-                TwigEnvironmentFactory::class => [
+                \Twig_Environment::class => [
                     TwigEnvironmentDelegator::class,
                 ],
 
