@@ -11,6 +11,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
+use Dot\Navigation\NavigationContainer;
 use Dot\Navigation\Page;
 use Dot\Navigation\View\RendererInterface;
 
@@ -58,21 +59,21 @@ class NavigationExtension extends \Twig_Extension
     }
 
     /**
-     * @param string $container
+     * @param string|NavigationContainer $container
      * @return string
      */
-    public function renderMenu(string $container): string
+    public function renderMenu($container): string
     {
         return $this->navigationRenderer->render($container);
     }
 
     /**
-     * @param string $container
+     * @param string|NavigationContainer $container
      * @param string $partial
      * @param array $params
      * @return string
      */
-    public function renderMenuPartial(string $container, string $partial, array $params = []): string
+    public function renderMenuPartial($container, string $partial, array $params = []): string
     {
         return $this->navigationRenderer->renderPartial($container, $partial, $params);
     }
