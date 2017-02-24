@@ -50,7 +50,7 @@ class AuthorizationExtension extends \Twig_Extension
      * @param mixed $context
      * @return bool
      */
-    public function isGranted(string $permission, array $roles = [], mixed $context = null)
+    public function isGranted(string $permission, array $roles = [], $context = null)
     {
         return $this->authorization->isGranted($permission, $roles, $context);
     }

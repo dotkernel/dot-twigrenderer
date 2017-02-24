@@ -72,7 +72,7 @@ class NavigationExtension extends \Twig_Extension
      * @param array $params
      * @return string
      */
-    public function renderPartial(string $container, string $partial, array $params = []): string
+    public function renderMenuPartial(string $container, string $partial, array $params = []): string
     {
         return $this->navigationRenderer->renderPartial($container, $partial, $params);
     }
