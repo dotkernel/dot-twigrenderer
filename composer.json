@@ -1,7 +1,7 @@
 {
   "name": "dotkernel/dot-twigrenderer",
   "type": "library",
-  "description": "DK useful twig extensions and ZF3 view helpers made available for twig",
+  "description": "DotKernel component providing twig extensions and customization",
   "license": "MIT",
   "authors": [
     {
@@ -21,10 +21,10 @@
     "phpunit/phpunit": "^4.8",
     "squizlabs/php_codesniffer": "^2.3",
 
-    "dotkernel/dot-authorization": "dev-develop as 0.6.x-dev",
-    "dotkernel/dot-authentication": "dev-develop as 0.6.x-dev",
-    "dotkernel/dot-navigation": "dev-develop as 0.6.x-dev",
-    "dotkernel/dot-flashmessenger": "dev-develop as 0.6.x-dev",
+    "dotkernel/dot-authorization": "~0.1",
+    "dotkernel/dot-authentication": "~0.1",
+    "dotkernel/dot-navigation": "~0.1",
+    "dotkernel/dot-flashmessenger": "~0.1",
 
     "zendframework/zend-form": "^2.9"
 
@@ -41,7 +41,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.6-dev"
+      "dev-master": "0.2-dev"
     }
   }
 }
