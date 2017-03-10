@@ -7,8 +7,12 @@
  * Time: 9:05 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig;
 
+use Dot\FlashMessenger\View\FlashMessengerRenderer;
+use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
 use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
@@ -19,7 +23,6 @@ use Dot\Twig\Factory\AuthorizationExtensionFactory;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Zend\View\HelperPluginManagerFactory;
-use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\Proxy\LazyServiceFactory;
 use Zend\View\HelperPluginManager;
@@ -30,7 +33,7 @@ use Zend\View\HelperPluginManager;
  */
 class ConfigProvider
 {
-    public function __invoke()
+    public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
@@ -39,7 +42,7 @@ class ConfigProvider
         ];
     }
 
-    public function getDependencyConfig()
+    public function getDependencyConfig(): array
     {
         return [
             'factories' => [
@@ -53,24 +56,25 @@ class ConfigProvider
             ],
 
             'delegators' => [
-                TemplateRendererInterface::class => [
-                    TwigRendererDelegator::class,
+                \Twig_Environment::class => [
+                    TwigEnvironmentDelegator::class,
                 ],
-                \Dot\FlashMessenger\View\RendererInterface::class => [
+
+                FlashMessengerRenderer::class => [
                     LazyServiceFactory::class,
                 ],
-                \Dot\Navigation\View\RendererInterface::class => [
+                NavigationRenderer::class => [
                     LazyServiceFactory::class,
                 ]
             ],
 
             'lazy_services' => [
                 'class_map' => [
-                    \Dot\Navigation\View\RendererInterface::class =>
-                        \Dot\Navigation\View\RendererInterface::class,
+                    NavigationRenderer::class =>
+                        NavigationRenderer::class,
 
-                    \Dot\FlashMessenger\View\RendererInterface::class =>
-                        \Dot\FlashMessenger\View\RendererInterface::class,
+                    FlashMessengerRenderer::class =>
+                        FlashMessengerRenderer::class,
                 ]
             ],
 

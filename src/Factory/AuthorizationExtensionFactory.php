@@ -7,6 +7,8 @@
  * Time: 10:01 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Factory;
 
 use Dot\Authorization\AuthorizationInterface;

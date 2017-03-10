@@ -7,9 +7,12 @@
  * Time: 9:04 PM
  */
 
+declare(strict_types = 1);
+
 namespace Dot\Twig\Extension;
 
 use Dot\Authentication\AuthenticationInterface;
+use Dot\Authentication\Identity\IdentityInterface;
 
 /**
  * Class AuthenticationExtension
@@ -32,7 +35,7 @@ class AuthenticationExtension extends \Twig_Extension
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'dot-authentication';
     }
@@ -45,12 +48,12 @@ class AuthenticationExtension extends \Twig_Extension
         ];
     }
 
-    public function hasIdentity()
+    public function hasIdentity(): bool
     {
         return $this->authentication->hasIdentity();
     }
 
-    public function getIdentity()
+    public function getIdentity(): IdentityInterface
     {
         return $this->authentication->getIdentity();
     }
