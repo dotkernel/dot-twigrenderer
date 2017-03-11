@@ -1,10 +1,8 @@
 <?php
 /**
- * @copyright: DotKernel
- * @library: dot-twigrenderer
- * @author: n3vra
- * Date: 2/3/2017
- * Time: 3:39 PM
+ * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
+ * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
+ * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
  */
 
 declare(strict_types = 1);

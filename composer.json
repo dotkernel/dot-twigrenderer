@@ -21,10 +21,10 @@
     "phpunit/phpunit": "^4.8",
     "squizlabs/php_codesniffer": "^2.3",
 
-    "dotkernel/dot-authorization": "~0.1",
-    "dotkernel/dot-authentication": "~0.1",
-    "dotkernel/dot-navigation": "~0.1",
-    "dotkernel/dot-flashmessenger": "~0.1",
+    "dotkernel/dot-authorization": "^0.1",
+    "dotkernel/dot-authentication": "^0.1",
+    "dotkernel/dot-navigation": "^0.1",
+    "dotkernel/dot-flashmessenger": "^0.1",
 
     "zendframework/zend-form": "^2.9"
 
