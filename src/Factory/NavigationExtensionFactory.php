@@ -11,7 +11,7 @@ namespace Dot\Twig\Factory;
 
 use Dot\Navigation\View\RendererInterface;
 use Dot\Twig\Extension\NavigationExtension;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class NavigationExtensionFactory

@@ -11,7 +11,7 @@ namespace Dot\Twig\Factory;
 
 use Dot\FlashMessenger\View\RendererInterface;
 use Dot\Twig\Extension\FlashMessengerExtension;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class FlashMessengerExtensionFactory

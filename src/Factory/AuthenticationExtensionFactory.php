@@ -11,7 +11,7 @@ namespace Dot\Twig\Factory;
 
 use Dot\Authentication\AuthenticationInterface;
 use Dot\Twig\Extension\AuthenticationExtension;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class AuthenticationExtensionFactory

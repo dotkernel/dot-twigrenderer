@@ -18,9 +18,8 @@ use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Zend\Form\Form;
-use Zend\ServiceManager\Factory\DelegatorFactoryInterface;
 use Zend\View\HelperPluginManager;
 use Zend\View\Renderer\PhpRenderer;
 
@@ -28,7 +27,7 @@ use Zend\View\Renderer\PhpRenderer;
  * Class TwigEnvironmentDelegator
  * @package Dot\Twig
  */
-class TwigEnvironmentDelegator implements DelegatorFactoryInterface
+class TwigEnvironmentDelegator
 {
     public function __invoke(
         ContainerInterface $container,

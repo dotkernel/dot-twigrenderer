@@ -1,3 +1,21 @@
+## 0.2.0 - 2017-03-17
+
+### Changed
+* updated factories to PSR11 container
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 0.1.1 - 2017-03-11
 
 Updated php file headers doc blocks
