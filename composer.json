@@ -11,10 +11,9 @@
   ],
   "require": {
     "php": "^7.1",
-    "container-interop/container-interop": "^1.1",
+    "zendframework/zend-servicemanager": "^3.3.0",
     "zendframework/zend-expressive-twigrenderer": "^1.1",
     "zendframework/zend-view": "^2.8",
-    "zendframework/zend-servicemanager": "^3.1",
     "ocramius/proxy-manager": "^2.0"
   },
   "require-dev": {
@@ -23,8 +22,8 @@
 
     "dotkernel/dot-authorization": "^0.1",
     "dotkernel/dot-authentication": "^0.1",
-    "dotkernel/dot-navigation": "^0.1",
-    "dotkernel/dot-flashmessenger": "^0.1",
+    "dotkernel/dot-navigation": "^0.2",
+    "dotkernel/dot-flashmessenger": "^0.2",
 
     "zendframework/zend-form": "^2.9"
 
@@ -41,7 +40,8 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.2-dev"
+      "dev-master": "0.2-dev",
+      "dev-develop": "0.3-dev"
     }
   }
 }
