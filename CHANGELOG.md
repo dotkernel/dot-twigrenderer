@@ -1,4 +1,4 @@
-## 1.0.0 - 2017-03-17
+## 1.0.0 - 2018-05-03
 
 ### Changed
 * updated dependencies
