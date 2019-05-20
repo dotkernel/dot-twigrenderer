@@ -54,7 +54,13 @@ class ConfigProvider
             ],
 
             'delegators' => [
+                // twig 1.x
                 \Twig_Environment::class => [
+                    TwigEnvironmentDelegator::class,
+                ],
+
+                // twig 2.x
+                \Twig\Environment::class => [
                     TwigEnvironmentDelegator::class,
                 ],
 
