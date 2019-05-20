@@ -1,3 +1,39 @@
+## 1.2.0 - 2019-05-20
+
+### Changed
+* fixed the initial installation issue
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Support
+
+### Fixed
+* Nothing
+
+
+## 1.1.0 - 2018-05-14
+
+### Changed
+* added php 7.1 support
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 1.0.0 - 2018-05-03
 
 ### Changed
