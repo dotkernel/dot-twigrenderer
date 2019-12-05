@@ -11,12 +11,14 @@ namespace Dot\Twig\Extension;
 
 use Dot\Authentication\AuthenticationInterface;
 use Dot\Authentication\Identity\IdentityInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class AuthenticationExtension
  * @package Dot\Twig\Extension
  */
-class AuthenticationExtension extends \Twig_Extension
+class AuthenticationExtension extends AbstractExtension
 {
     /** @var AuthenticationInterface */
     protected $authentication;
@@ -41,8 +43,8 @@ class AuthenticationExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('hasIdentity', [$this, 'hasIdentity']),
-            new \Twig_SimpleFunction('getIdentity', [$this, 'getIdentity']),
+            new TwigFunction('hasIdentity', [$this, 'hasIdentity']),
+            new TwigFunction('getIdentity', [$this, 'getIdentity']),
         ];
     }
 

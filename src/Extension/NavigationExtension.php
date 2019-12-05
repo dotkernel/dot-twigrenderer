@@ -12,12 +12,14 @@ namespace Dot\Twig\Extension;
 use Dot\Navigation\NavigationContainer;
 use Dot\Navigation\Page;
 use Dot\Navigation\View\RendererInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class NavigationExtension
  * @package Dot\Twig\Extension
  */
-class NavigationExtension extends \Twig_Extension
+class NavigationExtension extends AbstractExtension
 {
     /**
      * @var RendererInterface
@@ -41,9 +43,9 @@ class NavigationExtension extends \Twig_Extension
     public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('navigation', [$this, 'renderMenu'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('navigationPartial', [$this, 'renderMenuPartial'], ['is_safe' => ['html']]),
-            new \Twig_SimpleFunction('pageAttributes', [$this, 'htmlAttributes'], ['is_safe' => ['html']]),
+            new TwigFunction('navigation', [$this, 'renderMenu'], ['is_safe' => ['html']]),
+            new TwigFunction('navigationPartial', [$this, 'renderMenuPartial'], ['is_safe' => ['html']]),
+            new TwigFunction('pageAttributes', [$this, 'htmlAttributes'], ['is_safe' => ['html']]),
         ];
     }
 

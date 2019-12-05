@@ -11,12 +11,14 @@ namespace Dot\Twig\Extension;
 
 use Dot\FlashMessenger\FlashMessengerInterface;
 use Dot\FlashMessenger\View\RendererInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class FlashMessengerExtension
  * @package Dot\Twig\Extension
  */
-class FlashMessengerExtension extends \Twig_Extension
+class FlashMessengerExtension extends AbstractExtension
 {
     /** @var RendererInterface */
     protected $renderer;
@@ -44,12 +46,12 @@ class FlashMessengerExtension extends \Twig_Extension
     public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction(
+            new TwigFunction(
                 'messages',
                 [$this, 'renderMessages'],
                 ['is_safe' => ['html']]
             ),
-            new \Twig_SimpleFunction(
+            new TwigFunction(
                 'messagesPartial',
                 [$this, 'renderMessagesPartial'],
                 ['is_safe' => ['html']]

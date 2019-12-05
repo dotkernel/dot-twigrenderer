@@ -9,6 +9,8 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
+use Twig\Extension\AbstractExtension;
+use Twig\TwigTest;
 use Zend\Form\Element\Button;
 use Zend\Form\Element\Captcha;
 use Zend\Form\Element\Checkbox;
@@ -46,7 +48,7 @@ use Zend\Form\Fieldset;
  * Class FormElementsExtension
  * @package Dot\Twig\Extension
  */
-class FormElementsExtension extends \Twig_Extension
+class FormElementsExtension extends AbstractExtension
 {
 
     protected $formElements = [
@@ -99,7 +101,7 @@ class FormElementsExtension extends \Twig_Extension
     {
         $tests = [];
         foreach ($this->formElements as $element => $class) {
-            $tests[] = new \Twig_SimpleTest($element, function ($value) use ($class) {
+            $tests[] = new TwigTest($element, function ($value) use ($class) {
                 return ($value instanceof $class);
             });
         }

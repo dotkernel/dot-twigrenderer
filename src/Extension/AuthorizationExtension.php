@@ -10,12 +10,14 @@ declare(strict_types = 1);
 namespace Dot\Twig\Extension;
 
 use Dot\Authorization\AuthorizationInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class AuthorizationExtension
  * @package Dot\Twig\Extension
  */
-class AuthorizationExtension extends \Twig_Extension
+class AuthorizationExtension extends AbstractExtension
 {
     /**
      * @var AuthorizationInterface
@@ -38,7 +40,7 @@ class AuthorizationExtension extends \Twig_Extension
     public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('isGranted', [$this, 'isGranted']),
+            new TwigFunction('isGranted', [$this, 'isGranted']),
         ];
     }
 

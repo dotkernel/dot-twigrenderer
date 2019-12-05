@@ -19,6 +19,8 @@ use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
 use Psr\Container\ContainerInterface;
+use Twig\Environment;
+use Twig\TwigFunction;
 use Zend\Form\Form;
 use Zend\View\HelperPluginManager;
 use Zend\View\Renderer\PhpRenderer;
@@ -35,7 +37,7 @@ class TwigEnvironmentDelegator
         callable $callback,
         array $options = null
     ) {
-        /** @var \Twig_Environment $environment */
+        /** @var Environment $environment */
         $environment = $callback();
 
         //add the zend view helpers to twig
@@ -51,7 +53,7 @@ class TwigEnvironmentDelegator
 
                 $callable = [$zfRenderer->plugin($name), '__invoke'];
                 $options = ['is_safe' => ['html']];
-                return new \Twig_SimpleFunction($name, $callable, $options);
+                return new TwigFunction($name, $callable, $options);
             }
         );
 
