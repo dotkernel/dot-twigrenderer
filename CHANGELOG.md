@@ -1,3 +1,39 @@
+## 2.0.0 - 2020-01-30
+
+### Changed
+* Laminas and Mezzio migration.
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Support
+
+### Fixed
+* Nothing
+
+
+## 1.3.0 - 2019-12-05
+
+### Changed
+* Replaced calls to PSR-0 class names with their PSR-4 equivalents.
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Support
+
+### Fixed
+* Nothing
+
+
 ## 1.2.0 - 2019-05-20
 
 ### Changed

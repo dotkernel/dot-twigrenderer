@@ -21,9 +21,9 @@ use Dot\Twig\Extension\NavigationExtension;
 use Psr\Container\ContainerInterface;
 use Twig\Environment;
 use Twig\TwigFunction;
-use Zend\Form\Form;
-use Zend\View\HelperPluginManager;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\Form\Form;
+use Laminas\View\HelperPluginManager;
+use Laminas\View\Renderer\PhpRenderer;
 
 /**
  * Class TwigEnvironmentDelegator
@@ -40,7 +40,7 @@ class TwigEnvironmentDelegator
         /** @var Environment $environment */
         $environment = $callback();
 
-        //add the zend view helpers to twig
+        //add the laminas view helpers to twig
         /** @var HelperPluginManager $viewHelperManager */
         $viewHelperManager = $container->get('ViewHelperManager');
         $zfRenderer = new PhpRenderer();

@@ -20,10 +20,11 @@ use Dot\Twig\Factory\AuthenticationExtensionFactory;
 use Dot\Twig\Factory\AuthorizationExtensionFactory;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
-use Dot\Twig\Zend\View\HelperPluginManagerFactory;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\ServiceManager\Proxy\LazyServiceFactory;
-use Zend\View\HelperPluginManager;
+use Dot\Twig\Laminas\View\HelperPluginManagerFactory;
+use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\Proxy\LazyServiceFactory;
+use Laminas\View\HelperPluginManager;
+use Twig\Environment;
 
 /**
  * Class ConfigProvider
@@ -54,13 +55,7 @@ class ConfigProvider
             ],
 
             'delegators' => [
-                // twig 1.x
-                \Twig_Environment::class => [
-                    TwigEnvironmentDelegator::class,
-                ],
-
-                // twig 2.x
-                \Twig\Environment::class => [
+                Environment::class => [
                     TwigEnvironmentDelegator::class,
                 ],
 

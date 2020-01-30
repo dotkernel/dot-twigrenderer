@@ -7,14 +7,14 @@
 
 declare(strict_types = 1);
 
-namespace Dot\Twig\Zend\View;
+namespace Dot\Twig\Laminas\View;
 
 use Psr\Container\ContainerInterface;
-use Zend\View\HelperPluginManager;
+use Laminas\View\HelperPluginManager;
 
 /**
  * Class HelperPluginManagerFactory
- * @package Dot\Twig\Zend\View
+ * @package Dot\Twig\Laminas\View
  */
 class HelperPluginManagerFactory
 {
