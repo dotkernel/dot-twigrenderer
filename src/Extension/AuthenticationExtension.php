@@ -9,8 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
-use Dot\Authentication\AuthenticationInterface;
-use Dot\Authentication\Identity\IdentityInterface;
+use Laminas\Authentication\AuthenticationServiceInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -20,14 +19,14 @@ use Twig\TwigFunction;
  */
 class AuthenticationExtension extends AbstractExtension
 {
-    /** @var AuthenticationInterface */
+    /** @var AuthenticationServiceInterface */
     protected $authentication;
 
     /**
      * AuthenticationExtension constructor.
-     * @param AuthenticationInterface $authentication
+     * @param AuthenticationServiceInterface $authentication
      */
-    public function __construct(AuthenticationInterface $authentication)
+    public function __construct(AuthenticationServiceInterface $authentication)
     {
         $this->authentication = $authentication;
     }
@@ -53,7 +52,7 @@ class AuthenticationExtension extends AbstractExtension
         return $this->authentication->hasIdentity();
     }
 
-    public function getIdentity(): IdentityInterface
+    public function getIdentity()
     {
         return $this->authentication->getIdentity();
     }

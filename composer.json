@@ -15,16 +15,17 @@
         "mezzio/mezzio-twigrenderer": "^2.2",
         "laminas/laminas-view": "^2.10",
         "ocramius/proxy-manager": "^2.1",
-        "laminas/laminas-dependency-plugin": "^1.0"
+        "laminas/laminas-authentication": "^2.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "^2.3",
-        "dotkernel/dot-authorization": "^2.0",
-        "dotkernel/dot-authentication": "^2.0",
         "dotkernel/dot-navigation": "^2.0",
         "dotkernel/dot-flashmessenger": "^2.0",
-        "laminas/laminas-form": "^2.9"
+        "laminas/laminas-form": "^2.9",
+        "doctrine/doctrine-module": "^3.0",
+        "laminas/laminas-dependency-plugin": "^1.0",
+        "mezzio/mezzio-authorization": "^1.0"
     },
     "autoload": {
         "psr-4": {

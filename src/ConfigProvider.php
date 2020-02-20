@@ -9,6 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig;
 
+use DoctrineModule\Service\Authentication\AuthenticationServiceFactory;
 use Dot\FlashMessenger\View\FlashMessengerRenderer;
 use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
@@ -21,6 +22,8 @@ use Dot\Twig\Factory\AuthorizationExtensionFactory;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use Dot\Twig\Factory\NavigationExtensionFactory;
 use Dot\Twig\Laminas\View\HelperPluginManagerFactory;
+use Laminas\Authentication\AuthenticationService;
+use Laminas\Authentication\AuthenticationServiceInterface;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Laminas\ServiceManager\Proxy\LazyServiceFactory;
 use Laminas\View\HelperPluginManager;
@@ -52,6 +55,7 @@ class ConfigProvider
                 NavigationExtension::class => NavigationExtensionFactory::class,
                 FlashMessengerExtension::class => FlashMessengerExtensionFactory::class,
                 FormElementsExtension::class => InvokableFactory::class,
+                AuthenticationService::class => AuthenticationServiceFactory::class
             ],
 
             'delegators' => [
@@ -79,6 +83,7 @@ class ConfigProvider
 
             'aliases' => [
                 'ViewHelperManager' => HelperPluginManager::class,
+                AuthenticationServiceInterface::class => AuthenticationService::class
             ],
         ];
     }

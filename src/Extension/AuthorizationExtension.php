@@ -9,7 +9,8 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
-use Dot\Authorization\AuthorizationInterface;
+use Mezzio\Authorization\AuthorizationInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -45,13 +46,12 @@ class AuthorizationExtension extends AbstractExtension
     }
 
     /**
-     * @param $permission
-     * @param array $roles
-     * @param mixed $context
-     * @return bool
+     * @param ServerRequestInterface $request
+     * @param string $role
+     * @return mixed
      */
-    public function isGranted(string $permission, array $roles = [], $context = null)
+    public function isGranted(ServerRequestInterface $request, string $role = '')
     {
-        return $this->authorization->isGranted($permission, $roles, $context);
+        return $this->authorization->isGranted($role, $request);
     }
 }

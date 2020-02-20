@@ -9,8 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig;
 
-use Dot\Authentication\AuthenticationInterface;
-use Dot\Authorization\AuthorizationInterface;
+use Mezzio\Authorization\AuthorizationInterface;
 use Dot\FlashMessenger\View\RendererInterface as FlashMessengerRendererInterface;
 use Dot\Navigation\View\RendererInterface as NavigationRendererInterface;
 use Dot\Twig\Extension\AuthenticationExtension;
@@ -18,6 +17,7 @@ use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
+use Laminas\Authentication\AuthenticationServiceInterface;
 use Psr\Container\ContainerInterface;
 use Twig\Environment;
 use Twig\TwigFunction;
@@ -58,7 +58,7 @@ class TwigEnvironmentDelegator
         );
 
         //add our default extensions, if dependencies are present
-        if ($container->has(AuthenticationInterface::class)) {
+        if ($container->has(AuthenticationServiceInterface::class)) {
             $environment->addExtension($container->get(AuthenticationExtension::class));
         }
 
