@@ -11,7 +11,7 @@ namespace Dot\Twig\Factory;
 
 use Dot\Twig\Extension\AuthenticationExtension;
 use Psr\Container\ContainerInterface;
-use Dot\Authentication\AuthenticationService;
+use Laminas\Authentication\AuthenticationServiceInterface;
 
 /**
  * Class AuthenticationExtensionFactory
@@ -25,6 +25,6 @@ class AuthenticationExtensionFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        return new AuthenticationExtension($container->get(AuthenticationService::class));
+        return new AuthenticationExtension($container->get(AuthenticationServiceInterface::class));
     }
 }
