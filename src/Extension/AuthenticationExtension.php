@@ -9,7 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
-use Laminas\Authentication\AuthenticationServiceInterface;
+use Dot\Authentication\AuthenticationService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -19,14 +19,14 @@ use Twig\TwigFunction;
  */
 class AuthenticationExtension extends AbstractExtension
 {
-    /** @var AuthenticationServiceInterface */
+    /** @var AuthenticationService */
     protected $authentication;
 
     /**
      * AuthenticationExtension constructor.
-     * @param AuthenticationServiceInterface $authentication
+     * @param AuthenticationService $authentication
      */
-    public function __construct(AuthenticationServiceInterface $authentication)
+    public function __construct(AuthenticationService $authentication)
     {
         $this->authentication = $authentication;
     }
