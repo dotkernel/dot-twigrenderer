@@ -12,7 +12,7 @@
     "require": {
         "php": "^7.4",
         "laminas/laminas-servicemanager": "^3.3",
-        "mezzio/mezzio-twigrenderer": "^2.2",
+        "mezzio/mezzio-twigrenderer": "^2.5",
         "laminas/laminas-view": "^2.10",
         "ocramius/proxy-manager": "^2.1",
         "laminas/laminas-authentication": "^2.7"
