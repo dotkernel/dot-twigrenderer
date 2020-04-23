@@ -3,6 +3,12 @@
     "type": "library",
     "description": "DotKernel component providing twig extensions and customization",
     "license": "MIT",
+        "keywords": [
+        "twig",
+        "laminas",
+        "mezzio",
+        "twig-renderer"
+    ],
     "authors": [
         {
             "name": "DotKernel Team",
