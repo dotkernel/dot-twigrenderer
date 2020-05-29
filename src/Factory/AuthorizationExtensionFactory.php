@@ -9,7 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Factory;
 
-use Mezzio\Authorization\AuthorizationInterface;
+use Dot\Authorization\AuthorizationInterface
 use Dot\Twig\Extension\AuthorizationExtension;
 use Psr\Container\ContainerInterface;
 
