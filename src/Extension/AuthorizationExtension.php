@@ -9,7 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig\Extension;
 
-use Mezzio\Authorization\AuthorizationInterface;
+use Dot\Authorization\AuthorizationInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
