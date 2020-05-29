@@ -9,7 +9,7 @@ declare(strict_types = 1);
 
 namespace Dot\Twig;
 
-use Mezzio\Authorization\AuthorizationInterface;
+use Dot\Authorization\AuthorizationInterface;
 use Dot\FlashMessenger\View\RendererInterface as FlashMessengerRendererInterface;
 use Dot\Navigation\View\RendererInterface as NavigationRendererInterface;
 use Dot\Twig\Extension\AuthenticationExtension;
