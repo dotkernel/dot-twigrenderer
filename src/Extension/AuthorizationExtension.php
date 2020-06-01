@@ -49,8 +49,8 @@ class AuthorizationExtension extends AbstractExtension
      * @param string $role
      * @return mixed
      */
-    public function isGranted(string $role = '')
+    public function isGranted(string $permission = '')
     {
-        return $this->authorization->isGranted($role);
+        return $this->authorization->isGranted($permission);
     }
 }
