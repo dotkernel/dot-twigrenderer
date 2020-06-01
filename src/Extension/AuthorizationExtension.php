@@ -46,7 +46,7 @@ class AuthorizationExtension extends AbstractExtension
     }
 
     /**
-     * @param string $role
+     * @param string $permission
      * @return mixed
      */
     public function isGranted(string $permission = '')
