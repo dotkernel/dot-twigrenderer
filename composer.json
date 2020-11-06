@@ -30,7 +30,7 @@
         "dotkernel/dot-flashmessenger": "^3.1.1",
         "laminas/laminas-form": "^2.15",
         "doctrine/doctrine-module": "^4.0",
-        "laminas/laminas-dependency-plugin": "^2.0",
+        "laminas/laminas-dependency-plugin": "^2.1",
         "mezzio/mezzio-authorization": "^1.0"
     },
     "autoload": {
