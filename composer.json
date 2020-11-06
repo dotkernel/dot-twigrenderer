@@ -26,11 +26,11 @@
     "require-dev": {
         "phpunit/phpunit": "^9.1",
         "squizlabs/php_codesniffer": "^3.5",
-        "dotkernel/dot-navigation": "^3.0",
-        "dotkernel/dot-flashmessenger": "^3.0",
-        "laminas/laminas-form": "^2.14",
+        "dotkernel/dot-navigation": "^3.1",
+        "dotkernel/dot-flashmessenger": "^3.1.1",
+        "laminas/laminas-form": "^2.15",
         "doctrine/doctrine-module": "^4.0",
-        "laminas/laminas-dependency-plugin": "^1.0",
+        "laminas/laminas-dependency-plugin": "^2.0",
         "mezzio/mezzio-authorization": "^1.0"
     },
     "autoload": {
