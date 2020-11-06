@@ -16,7 +16,7 @@
 * Nothing
 
 ### Fixed
-* Nothing
+* require-dev compatibility with Composer 2
 
 ## 2.0.0 - 2020-01-30
 
