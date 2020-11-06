@@ -4,7 +4,7 @@
 * Composer 2 compatibility.
 * Update composer.json to require version 2 of laminas/laminas-dependency-plugin to be Composer 2 compatible.
 * bump laminas/laminas-dependency-plugin ^2.1
-* erquire-dev compatibility with Composer 2
+* require-dev compatibility with Composer 2
 
 ### Added
 * Nothing
