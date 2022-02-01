@@ -28,7 +28,7 @@
         "squizlabs/php_codesniffer": "^3.5",
         "dotkernel/dot-navigation": "^3.1",
         "dotkernel/dot-flashmessenger": "^3.1.1",
-        "laminas/laminas-form": "^2.15",
+        "laminas/laminas-form": "^3.1.1",
         "doctrine/doctrine-module": "^4.0",
         "laminas/laminas-dependency-plugin": "^2.1",
         "mezzio/mezzio-authorization": "^1.0"
