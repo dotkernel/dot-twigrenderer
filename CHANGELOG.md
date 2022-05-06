@@ -1,3 +1,39 @@
+## 3.2.1 - 2022-05-06
+
+### Changed
+* Nothing
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Require ocramius/proxy-manager
+
+### Fixed
+* Nothing
+
+
+## 3.2.0 - 2022-04-29
+
+### Changed
+* Added PHP 8.0 and 8.1 compatibility.
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
+
 ## 3.1.1 - 2020-11-06
 
 ### Changed
