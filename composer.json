@@ -20,7 +20,6 @@
         "laminas/laminas-servicemanager": "^3.11",
         "mezzio/mezzio-twigrenderer": "^2.9",
         "laminas/laminas-view": "^2.20",
-        "ocramius/proxy-manager": "~2.13.0",
         "laminas/laminas-authentication": "^2.10"
     },
     "require-dev": {
