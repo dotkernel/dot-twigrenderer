@@ -1,11 +1,10 @@
 <?php
+
 /**
  * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig\Extension;
 
@@ -15,21 +14,10 @@ use Dot\Navigation\View\RendererInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-/**
- * Class NavigationExtension
- * @package Dot\Twig\Extension
- */
 class NavigationExtension extends AbstractExtension
 {
-    /**
-     * @var RendererInterface
-     */
-    protected $navigationRenderer;
+    protected RendererInterface $navigationRenderer;
 
-    /**
-     * NavigationExtension constructor.
-     * @param RendererInterface $navigationRenderer
-     */
     public function __construct(RendererInterface $navigationRenderer)
     {
         $this->navigationRenderer = $navigationRenderer;
@@ -49,10 +37,6 @@ class NavigationExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param Page $page
-     * @return mixed
-     */
     public function htmlAttributes(Page $page): string
     {
         return $this->navigationRenderer->htmlAttributes($page->getAttributes());
@@ -60,7 +44,6 @@ class NavigationExtension extends AbstractExtension
 
     /**
      * @param string|NavigationContainer $container
-     * @return string
      */
     public function renderMenu($container): string
     {
@@ -69,9 +52,7 @@ class NavigationExtension extends AbstractExtension
 
     /**
      * @param string|NavigationContainer $container
-     * @param string $partial
      * @param array $params
-     * @return string
      */
     public function renderMenuPartial($container, string $partial, array $params = []): string
     {

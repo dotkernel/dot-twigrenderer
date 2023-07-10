@@ -1,11 +1,10 @@
 <?php
+
 /**
  * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig;
 
@@ -18,41 +17,39 @@ use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
 use Laminas\Authentication\AuthenticationServiceInterface;
-use Psr\Container\ContainerInterface;
-use Twig\Environment;
-use Twig\TwigFunction;
 use Laminas\Form\Form;
 use Laminas\View\HelperPluginManager;
 use Laminas\View\Renderer\PhpRenderer;
+use Psr\Container\ContainerInterface;
+use Twig\Environment;
+use Twig\TwigFunction;
 
-/**
- * Class TwigEnvironmentDelegator
- * @package Dot\Twig
- */
+use function class_exists;
+
 class TwigEnvironmentDelegator
 {
     public function __invoke(
         ContainerInterface $container,
-        $name,
+        string $name,
         callable $callback,
-        array $options = null
-    ) {
+        ?array $options = null
+    ): Environment {
         /** @var Environment $environment */
         $environment = $callback();
 
         //add the laminas view helpers to twig
         /** @var HelperPluginManager $viewHelperManager */
         $viewHelperManager = $container->get('ViewHelperManager');
-        $zfRenderer = new PhpRenderer();
+        $zfRenderer        = new PhpRenderer();
         $zfRenderer->setHelperPluginManager($viewHelperManager);
         $environment->registerUndefinedFunctionCallback(
             function ($name) use ($viewHelperManager, $zfRenderer) {
-                if (!$viewHelperManager->has($name)) {
+                if (! $viewHelperManager->has($name)) {
                     return false;
                 }
 
                 $callable = [$zfRenderer->plugin($name), '__invoke'];
-                $options = ['is_safe' => ['html']];
+                $options  = ['is_safe' => ['html']];
                 return new TwigFunction($name, $callable, $options);
             }
         );

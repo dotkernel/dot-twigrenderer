@@ -1,30 +1,37 @@
 <?php
+
 /**
  * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig\Factory;
 
 use Dot\Authorization\AuthorizationInterface;
 use Dot\Twig\Extension\AuthorizationExtension;
+use Exception;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Class AuthorizationExtensionFactory
- * @package Dot\Twig\Factory
- */
+use function sprintf;
+
 class AuthorizationExtensionFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @return AuthorizationExtension
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): AuthorizationExtension
     {
-        return new AuthorizationExtension($container->get(AuthorizationInterface::class));
+        $authorizationInterface = $container->has(AuthorizationInterface::class) ?
+            $container->get(AuthorizationInterface::class) : null;
+
+        if (! $authorizationInterface instanceof AuthorizationInterface) {
+            throw new Exception(sprintf('Unable to find %s', AuthorizationInterface::class));
+        }
+
+        return new AuthorizationExtension($authorizationInterface);
     }
 }

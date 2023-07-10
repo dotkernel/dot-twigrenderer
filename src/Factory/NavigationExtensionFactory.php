@@ -1,31 +1,37 @@
 <?php
+
 /**
  * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig\Factory;
 
 use Dot\Navigation\View\RendererInterface;
 use Dot\Twig\Extension\NavigationExtension;
+use Exception;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Class NavigationExtensionFactory
- * @package Dot\Twig\Factory
- */
+use function sprintf;
+
 class NavigationExtensionFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @return NavigationExtension
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): NavigationExtension
     {
-        $navigationMenu = $container->get(RendererInterface::class);
-        return new NavigationExtension($navigationMenu);
+        $renderInterface = $container->has(RendererInterface::class) ?
+            $container->get(RendererInterface::class) : null;
+
+        if (! $renderInterface instanceof RendererInterface) {
+            throw new Exception(sprintf('Unable to find %s', RendererInterface::class));
+        }
+
+        return new NavigationExtension($renderInterface);
     }
 }

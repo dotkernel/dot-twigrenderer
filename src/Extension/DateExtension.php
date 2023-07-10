@@ -1,20 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dot\Twig\Extension;
 
+use DateTime;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-/**
- * Class DateExtension
- * @package Dot\Twig\Extension
- */
+use function twig_date_converter;
+
 class DateExtension extends AbstractExtension
 {
-    /**
-     * @var array|string[]
-     */
     public static array $units = [
         'y' => 'year',
         'm' => 'month',
@@ -24,10 +22,7 @@ class DateExtension extends AbstractExtension
         's' => 'second',
     ];
 
-    /**
-     * @return array|TwigFilter[]
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('time_diff', [$this, 'diff'], ['needs_environment' => true]),
@@ -37,18 +32,16 @@ class DateExtension extends AbstractExtension
     /**
      * Filters for converting dates to a time ago string like Facebook and Twitter has.
      *
-     * @param Environment $env
-     * @param string|\DateTime $date a string or DateTime object to convert
-     * @param string|\DateTime $now A string or DateTime object to compare with.
-     * If none given, the current time will be used.
+     * @param string|DateTime $date a string or DateTime object to convert
+     * @param string|DateTime $now A string or DateTime object to compare with.
      *
-     * @return string the converted time
+     * If none given, the current time will be used.
      */
-    public function diff(Environment $env, $date, $now = null)
+    public function diff(Environment $env, $date, $now = null): string
     {
         // Convert both dates to DateTime instances.
         $date = twig_date_converter($env, $date);
-        $now = twig_date_converter($env, $now);
+        $now  = twig_date_converter($env, $now);
 
         // Get the difference between the two DateTime objects.
         $diff = $date->diff($now);
@@ -65,15 +58,8 @@ class DateExtension extends AbstractExtension
         return '';
     }
 
-    /**
-     * @param $count
-     * @param $invert
-     * @param $unit
-     * @return string
-     */
-    private function getPluralizedInterval($count, $invert, $unit)
+    public function getPluralizedInterval(mixed $count, int $invert, string $unit): string
     {
-
         if (1 !== $count) {
             $unit .= 's';
         }
