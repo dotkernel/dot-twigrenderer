@@ -14,8 +14,7 @@ use Twig\TwigFunction;
 
 class AuthenticationExtension extends AbstractExtension
 {
-    /** @var AuthenticationServiceInterface */
-    protected $authentication;
+    protected AuthenticationServiceInterface $authentication;
 
     public function __construct(AuthenticationServiceInterface $authentication)
     {

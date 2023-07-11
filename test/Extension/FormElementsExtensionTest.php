@@ -15,7 +15,7 @@ class FormElementsExtensionTest extends TestCase
         $extension = new FormElementsExtension();
         $twigTests = $extension->getTests();
         foreach ($twigTests as $element) {
-            self::assertInstanceOf(TwigTest::class, $element);
+            $this->assertInstanceOf(TwigTest::class, $element);
         }
     }
 }

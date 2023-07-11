@@ -50,9 +50,6 @@ class FlashMessengerExtension extends AbstractExtension
         return $this->renderer->render($type, $channel);
     }
 
-    /**
-     * @param array $params
-     */
     public function renderMessagesPartial(
         string $partial,
         array $params = [],

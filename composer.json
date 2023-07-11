@@ -25,13 +25,10 @@
         "dotkernel/dot-flashmessenger": "^3.1.1",
         "laminas/laminas-form": "^3.1.1",
         "doctrine/doctrine-module": "^5.1",
-        "mezzio/mezzio-authorization": "^1.4",
         "dotkernel/dot-authorization": "^3.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.2",
-        "squizlabs/php_codesniffer": "^3.6",
-        "symfony/var-dumper": "^6.3",
         "laminas/laminas-coding-standard": "^2.5",
         "vimeo/psalm": "^5.13"
     },
@@ -46,12 +43,20 @@
         }
     },
     "config": {
+        "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
         "cs-check": "phpcs",
-        "cs-fix": "phpcbf"
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "static-analysis": "psalm --shepherd --stats"
     }
 }

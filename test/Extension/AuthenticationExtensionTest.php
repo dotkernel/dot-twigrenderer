@@ -6,32 +6,32 @@ namespace DotTest\Twig\Extension;
 
 use Dot\Twig\Extension\AuthenticationExtension;
 use Laminas\Authentication\AuthenticationServiceInterface;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFunction;
 
-use function PHPUnit\Framework\assertInstanceOf;
-
 class AuthenticationExtensionTest extends TestCase
 {
-    private AuthenticationServiceInterface|MockObject $interfaceMock;
     private AuthenticationExtension $extension;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
-        $this->interfaceMock = $this->createMock(AuthenticationServiceInterface::class);
-        $this->extension     = new AuthenticationExtension($this->interfaceMock);
+        $interfaceMock   = $this->createMock(AuthenticationServiceInterface::class);
+        $this->extension = new AuthenticationExtension($interfaceMock);
     }
 
     public function testCreate()
     {
-        assertInstanceOf(AuthenticationExtension::class, $this->extension);
+        $this->assertInstanceOf(AuthenticationExtension::class, $this->extension);
     }
 
     public function testFunctions()
     {
         foreach ($this->extension->getFunctions() as $function) {
-            assertInstanceOf(TwigFunction::class, $function);
+            $this->assertInstanceOf(TwigFunction::class, $function);
         }
     }
 }

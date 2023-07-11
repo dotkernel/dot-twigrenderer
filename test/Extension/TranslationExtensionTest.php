@@ -18,6 +18,6 @@ class TranslationExtensionTest extends TestCase
 
     public function testTokenParsersIsArray()
     {
-        self::assertIsArray($this->extension->getTokenParsers());
+        $this->assertIsArray($this->extension->getTokenParsers());
     }
 }

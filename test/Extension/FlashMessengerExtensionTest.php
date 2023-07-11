@@ -6,16 +6,17 @@ namespace DotTest\Twig\Extension;
 
 use Dot\FlashMessenger\View\RendererInterface;
 use Dot\Twig\Extension\FlashMessengerExtension;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFunction;
-
-use function PHPUnit\Framework\assertInstanceOf;
-use function PHPUnit\Framework\assertIsString;
 
 class FlashMessengerExtensionTest extends TestCase
 {
     private FlashMessengerExtension $extension;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $interfaceMock   = $this->createMock(RendererInterface::class);
@@ -24,23 +25,23 @@ class FlashMessengerExtensionTest extends TestCase
 
     public function testCreate()
     {
-        self::assertInstanceOf(FlashMessengerExtension::class, $this->extension);
+        $this->assertInstanceOf(FlashMessengerExtension::class, $this->extension);
     }
 
     public function testFunctions()
     {
         foreach ($this->extension->getFunctions() as $function) {
-            assertInstanceOf(TwigFunction::class, $function);
+            $this->assertInstanceOf(TwigFunction::class, $function);
         }
     }
 
     public function testWillRenderMessages()
     {
-        assertIsString($this->extension->renderMessages());
+        $this->assertIsString($this->extension->renderMessages());
     }
 
     public function testWillRenderMessagesPartial()
     {
-        assertIsString($this->extension->renderMessagesPartial('partial string'));
+        $this->assertIsString($this->extension->renderMessagesPartial('partial string'));
     }
 }

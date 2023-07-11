@@ -14,11 +14,7 @@ use Twig\TokenParser\AbstractTokenParser;
 
 class TransTokenParser extends AbstractTokenParser
 {
-    /**
-     * @return TransNode|Node
-     * @throws SyntaxError
-     */
-    public function parse(Token $token)
+    public function parse(Token $token): TransNode
     {
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();

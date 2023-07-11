@@ -22,6 +22,7 @@ class NavigationExtensionFactory
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws Exception
      */
     public function __invoke(ContainerInterface $container): NavigationExtension
     {

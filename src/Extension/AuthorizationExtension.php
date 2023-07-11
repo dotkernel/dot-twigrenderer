@@ -14,8 +14,7 @@ use Twig\TwigFunction;
 
 class AuthorizationExtension extends AbstractExtension
 {
-    /** @var AuthorizationInterface */
-    protected $authorization;
+    protected AuthorizationInterface $authorization;
 
     public function __construct(AuthorizationInterface $authorization)
     {

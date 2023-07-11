@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Dot\Twig\Extension;
 
-use DateTime;
+use DateTimeInterface;
+use DateTimeZone;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -31,14 +32,13 @@ class DateExtension extends AbstractExtension
 
     /**
      * Filters for converting dates to a time ago string like Facebook and Twitter has.
-     *
-     * @param string|DateTime $date a string or DateTime object to convert
-     * @param string|DateTime $now A string or DateTime object to compare with.
-     *
      * If none given, the current time will be used.
      */
-    public function diff(Environment $env, $date, $now = null): string
-    {
+    public function diff(
+        Environment $env,
+        string|DateTimeInterface|null $date,
+        string|DateTimeZone|null $now = null
+    ): string {
         // Convert both dates to DateTime instances.
         $date = twig_date_converter($env, $date);
         $now  = twig_date_converter($env, $now);

@@ -42,20 +42,16 @@ class NavigationExtension extends AbstractExtension
         return $this->navigationRenderer->htmlAttributes($page->getAttributes());
     }
 
-    /**
-     * @param string|NavigationContainer $container
-     */
-    public function renderMenu($container): string
+    public function renderMenu(NavigationContainer|string $container): string
     {
         return $this->navigationRenderer->render($container);
     }
 
-    /**
-     * @param string|NavigationContainer $container
-     * @param array $params
-     */
-    public function renderMenuPartial($container, string $partial, array $params = []): string
-    {
+    public function renderMenuPartial(
+        NavigationContainer|string $container,
+        string $partial,
+        array $params = []
+    ): string {
         return $this->navigationRenderer->renderPartial($container, $partial, $params);
     }
 }

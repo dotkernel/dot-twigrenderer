@@ -8,6 +8,7 @@ use Dot\Navigation\NavigationContainer;
 use Dot\Navigation\Page;
 use Dot\Navigation\View\RendererInterface;
 use Dot\Twig\Extension\NavigationExtension;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFunction;
 
@@ -15,6 +16,9 @@ class NavigationExtensionTest extends TestCase
 {
     private NavigationExtension $extension;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $interfaceMock   = $this->createMock(RendererInterface::class);
@@ -23,29 +27,29 @@ class NavigationExtensionTest extends TestCase
 
     public function testCreate()
     {
-        self::assertInstanceOf(NavigationExtension::class, $this->extension);
+        $this->assertInstanceOf(NavigationExtension::class, $this->extension);
     }
 
     public function testFunctions()
     {
         foreach ($this->extension->getFunctions() as $function) {
-            self::assertInstanceOf(TwigFunction::class, $function);
+            $this->assertInstanceOf(TwigFunction::class, $function);
         }
     }
 
     public function testHtmlAttributes()
     {
         $page = new Page();
-        self::assertIsString($this->extension->htmlAttributes($page));
+        $this->assertIsString($this->extension->htmlAttributes($page));
     }
 
     public function testRenderMenu()
     {
-        self::assertIsString($this->extension->renderMenu(new NavigationContainer()));
+        $this->assertIsString($this->extension->renderMenu(new NavigationContainer()));
     }
 
     public function testRenderMenuPartial()
     {
-        self::assertIsString($this->extension->renderMenuPartial(new NavigationContainer(), 'partial'));
+        $this->assertIsString($this->extension->renderMenuPartial(new NavigationContainer(), 'partial'));
     }
 }

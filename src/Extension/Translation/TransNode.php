@@ -120,11 +120,7 @@ class TransNode extends Node
         }
     }
 
-    /**
-     * @param Node $body A Twig_Node instance
-     * @return array
-     */
-    protected function compileString(Node $body)
+    protected function compileString(Node $body): array
     {
         if (
             $body instanceof NameExpression ||

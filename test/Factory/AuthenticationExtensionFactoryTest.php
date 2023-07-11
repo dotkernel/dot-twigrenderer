@@ -9,7 +9,9 @@ use Dot\Twig\Factory\AuthenticationExtensionFactory;
 use Laminas\Authentication\AuthenticationServiceInterface;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 use function PHPUnit\Framework\assertInstanceOf;
 use function sprintf;
@@ -18,17 +20,21 @@ class AuthenticationExtensionFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
     /**
-     * @throws \Exception
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function testWillNotInstantiateWithoutInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(AuthenticationServiceInterface::class)
             ->willReturn(false);
@@ -37,11 +43,13 @@ class AuthenticationExtensionFactoryTest extends TestCase
     }
 
     /**
-     * @throws \Exception|Exception
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws Exception
      */
     public function testWillInstantiateWithInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(AuthenticationServiceInterface::class)
             ->willReturn(true);

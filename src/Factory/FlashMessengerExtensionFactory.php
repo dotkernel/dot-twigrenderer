@@ -11,12 +11,19 @@ namespace Dot\Twig\Factory;
 use Dot\FlashMessenger\View\RendererInterface;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Exception;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 use function sprintf;
 
 class FlashMessengerExtensionFactory
 {
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws Exception
+     */
     public function __invoke(ContainerInterface $container): FlashMessengerExtension
     {
         $renderInterface = $container->has(RendererInterface::class) ?

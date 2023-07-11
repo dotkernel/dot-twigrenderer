@@ -12,14 +12,15 @@ use Twig\Environment;
 use Twig\Extension\CoreExtension;
 use Twig\TwigFilter;
 
-use function PHPUnit\Framework\assertIsString;
-
 class DateExtensionTest extends TestCase
 {
     private DateExtension $extension;
 
     private MockObject|Environment $env;
 
+    /**
+     * @throws \PHPUnit\Framework\MockObject\Exception
+     */
     protected function setUp(): void
     {
         $this->extension = new DateExtension();
@@ -31,13 +32,13 @@ class DateExtensionTest extends TestCase
     public function testFilters()
     {
         foreach ($this->extension->getFilters() as $filter) {
-            self::assertInstanceOf(TwigFilter::class, $filter);
+            $this->assertInstanceOf(TwigFilter::class, $filter);
         }
     }
 
     public function testDiffWillReturnString()
     {
-        assertIsString($this->extension->diff($this->env, "2023-07-31"));
+        $this->assertIsString($this->extension->diff($this->env, "2023-07-31"));
     }
 
     public function testDiffWillReturnExceptionUnexpectedCharacters()
@@ -57,9 +58,9 @@ class DateExtensionTest extends TestCase
     public function testPluralizedInterval()
     {
         $month = 'month'; //can be any word
-        self::assertSame('in 1 month', $this->extension->getPluralizedInterval(1, 1, $month));
-        self::assertSame('in 2 months', $this->extension->getPluralizedInterval(2, 1, $month));
-        self::assertSame('1 month ago', $this->extension->getPluralizedInterval(1, 0, $month));
-        self::assertSame('2 months ago', $this->extension->getPluralizedInterval(2, 0, $month));
+        $this->assertSame('in 1 month', $this->extension->getPluralizedInterval(1, 1, $month));
+        $this->assertSame('in 2 months', $this->extension->getPluralizedInterval(2, 1, $month));
+        $this->assertSame('1 month ago', $this->extension->getPluralizedInterval(1, 0, $month));
+        $this->assertSame('2 months ago', $this->extension->getPluralizedInterval(2, 0, $month));
     }
 }

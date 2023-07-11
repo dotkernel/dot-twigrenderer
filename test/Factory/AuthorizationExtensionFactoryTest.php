@@ -19,19 +19,21 @@ class AuthorizationExtensionFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
     }
 
     /**
-     * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
     public function testWillNotInstantiateWithoutInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(AuthorizationInterface::class)
             ->willReturn(false);
@@ -40,14 +42,13 @@ class AuthorizationExtensionFactoryTest extends TestCase
     }
 
     /**
-     * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      * @throws Exception
      */
     public function testWillInstantiateWithInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(AuthorizationInterface::class)
             ->willReturn(true);

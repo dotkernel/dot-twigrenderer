@@ -19,6 +19,9 @@ class NavigationExtensionFactoryTest extends TestCase
 {
     private ContainerInterface $container;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         $this->container = $this->createMock(ContainerInterface::class);
@@ -30,7 +33,7 @@ class NavigationExtensionFactoryTest extends TestCase
      */
     public function testWillNotInstantiateWithoutInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(RendererInterface::class)
             ->willReturn(false);
@@ -40,14 +43,13 @@ class NavigationExtensionFactoryTest extends TestCase
     }
 
     /**
-     * @return void
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      * @throws Exception
      */
     public function testWillInstantiateWithInterface()
     {
-        $this->container->expects(self::once())
+        $this->container->expects($this->once())
             ->method('has')
             ->with(RendererInterface::class)
             ->willReturn(true);
