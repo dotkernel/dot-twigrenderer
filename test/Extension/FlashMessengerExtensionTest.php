@@ -23,24 +23,24 @@ class FlashMessengerExtensionTest extends TestCase
         $this->extension = new FlashMessengerExtension($interfaceMock);
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $this->assertInstanceOf(FlashMessengerExtension::class, $this->extension);
     }
 
-    public function testFunctions()
+    public function testFunctions(): void
     {
         foreach ($this->extension->getFunctions() as $function) {
             $this->assertInstanceOf(TwigFunction::class, $function);
         }
     }
 
-    public function testWillRenderMessages()
+    public function testWillRenderMessages(): void
     {
         $this->assertIsString($this->extension->renderMessages());
     }
 
-    public function testWillRenderMessagesPartial()
+    public function testWillRenderMessagesPartial(): void
     {
         $this->assertIsString($this->extension->renderMessagesPartial('partial string'));
     }

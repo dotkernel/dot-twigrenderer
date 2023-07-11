@@ -23,12 +23,12 @@ class AuthorizationExtensionTest extends TestCase
         $this->extension = new AuthorizationExtension($interfaceMock);
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $this->assertInstanceOf(AuthorizationExtension::class, $this->extension);
     }
 
-    public function testFunctions()
+    public function testFunctions(): void
     {
         foreach ($this->extension->getFunctions() as $function) {
             $this->assertInstanceOf(TwigFunction::class, $function);

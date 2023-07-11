@@ -29,33 +29,33 @@ class DateExtensionTest extends TestCase
         $this->env->method('getExtension')->willReturn($coreExtension);
     }
 
-    public function testFilters()
+    public function testFilters(): void
     {
         foreach ($this->extension->getFilters() as $filter) {
             $this->assertInstanceOf(TwigFilter::class, $filter);
         }
     }
 
-    public function testDiffWillReturnString()
+    public function testDiffWillReturnString(): void
     {
         $this->assertIsString($this->extension->diff($this->env, "2023-07-31"));
     }
 
-    public function testDiffWillReturnExceptionUnexpectedCharacters()
+    public function testDiffWillReturnExceptionUnexpectedCharacters(): void
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Unexpected character');
         $this->extension->diff($this->env, '2023-23-3322');
     }
 
-    public function testDiffWillReturnExceptionNotFoundMessage()
+    public function testDiffWillReturnExceptionNotFoundMessage(): void
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('The timezone could not be found in the database');
         $this->extension->diff($this->env, 'asdas');
     }
 
-    public function testPluralizedInterval()
+    public function testPluralizedInterval(): void
     {
         $month = 'month'; //can be any word
         $this->assertSame('in 1 month', $this->extension->getPluralizedInterval(1, 1, $month));

@@ -10,7 +10,7 @@ use Twig\TwigTest;
 
 class FormElementsExtensionTest extends TestCase
 {
-    public function testWillGetTests()
+    public function testWillGetTests(): void
     {
         $extension = new FormElementsExtension();
         $twigTests = $extension->getTests();

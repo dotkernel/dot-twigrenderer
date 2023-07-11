@@ -25,30 +25,30 @@ class NavigationExtensionTest extends TestCase
         $this->extension = new NavigationExtension($interfaceMock);
     }
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $this->assertInstanceOf(NavigationExtension::class, $this->extension);
     }
 
-    public function testFunctions()
+    public function testFunctions(): void
     {
         foreach ($this->extension->getFunctions() as $function) {
             $this->assertInstanceOf(TwigFunction::class, $function);
         }
     }
 
-    public function testHtmlAttributes()
+    public function testHtmlAttributes(): void
     {
         $page = new Page();
         $this->assertIsString($this->extension->htmlAttributes($page));
     }
 
-    public function testRenderMenu()
+    public function testRenderMenu(): void
     {
         $this->assertIsString($this->extension->renderMenu(new NavigationContainer()));
     }
 
-    public function testRenderMenuPartial()
+    public function testRenderMenuPartial(): void
     {
         $this->assertIsString($this->extension->renderMenuPartial(new NavigationContainer(), 'partial'));
     }

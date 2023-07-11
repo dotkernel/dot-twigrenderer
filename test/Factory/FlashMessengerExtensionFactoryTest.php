@@ -8,6 +8,7 @@ use Dot\FlashMessenger\View\RendererInterface;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Factory\FlashMessengerExtensionFactory;
 use PHPUnit\Framework\MockObject\Exception;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -17,7 +18,7 @@ use function sprintf;
 
 class FlashMessengerExtensionFactoryTest extends TestCase
 {
-    private ContainerInterface $container;
+    private ContainerInterface|MockObject $container;
 
     /**
      * @throws Exception
@@ -31,7 +32,7 @@ class FlashMessengerExtensionFactoryTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function testWillNotInstantiateWithoutInterface()
+    public function testWillNotInstantiateWithoutInterface(): void
     {
         $this->container->expects($this->once())
             ->method('has')
@@ -47,7 +48,7 @@ class FlashMessengerExtensionFactoryTest extends TestCase
      * @throws NotFoundExceptionInterface
      * @throws Exception
      */
-    public function testWillInstantiateWithInterface()
+    public function testWillInstantiateWithInterface(): void
     {
         $this->container->expects($this->once())
             ->method('has')

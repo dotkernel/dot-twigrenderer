@@ -7,6 +7,7 @@ namespace DotTest\Twig\Laminas\View;
 use Dot\Twig\Laminas\View\HelperPluginManagerFactory;
 use Exception;
 use Laminas\View\HelperPluginManager;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -14,7 +15,7 @@ use Psr\Container\NotFoundExceptionInterface;
 
 class HelperPluginManagerFactoryTest extends TestCase
 {
-    private ContainerInterface $container;
+    private ContainerInterface|MockObject $container;
 
     /**
      * @throws Exception
@@ -29,7 +30,7 @@ class HelperPluginManagerFactoryTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function testWillNotInstantiateWithoutConfig()
+    public function testWillNotInstantiateWithoutConfig(): void
     {
         $this->container->expects($this->once())
             ->method('has')
@@ -45,7 +46,7 @@ class HelperPluginManagerFactoryTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function testWillNotInstantiateWithoutViewHelpers()
+    public function testWillNotInstantiateWithoutViewHelpers(): void
     {
         $this->container->expects($this->once())
             ->method('has')
@@ -68,7 +69,7 @@ class HelperPluginManagerFactoryTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function testWillInstantiate()
+    public function testWillInstantiate(): void
     {
         $this->container->expects($this->once())
             ->method('has')
