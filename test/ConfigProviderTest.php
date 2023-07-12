@@ -51,7 +51,7 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey(AuthenticationServiceInterface::class, $this->config['dependencies']['aliases']);
     }
 
-    public function testDependenciesHasLazyServices()
+    public function testDependenciesHasLazyServices(): void
     {
         $this->assertArrayHasKey('lazy_services', $this->config['dependencies']);
         $this->assertArrayHasKey('class_map', $this->config['dependencies']['lazy_services']);
@@ -65,7 +65,7 @@ class ConfigProviderTest extends TestCase
         );
     }
 
-    public function testDependenciesHasDelegators()
+    public function testDependenciesHasDelegators(): void
     {
         $this->assertArrayHasKey('delegators', $this->config['dependencies']);
         $this->assertArrayHasKey(Environment::class, $this->config['dependencies']['delegators']);
