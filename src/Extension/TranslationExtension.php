@@ -1,29 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dot\Twig\Extension;
 
+use Dot\Twig\Extension\Translation\TransTokenParser;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use Dot\Twig\Extension\Translation\TransTokenParser;
 
-/**
- * Class TranslationExtension
- * @package Dot\Twig\Extension
- */
 class TranslationExtension extends AbstractExtension
 {
-    /**
-     * @return array|TransTokenParser[]|\Twig\TokenParser\TokenParserInterface[]
-     */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [new TransTokenParser()];
     }
 
-    /**
-     * @return array|TwigFilter[]
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('trans', 'gettext'),

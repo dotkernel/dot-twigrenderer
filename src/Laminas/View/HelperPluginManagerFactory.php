@@ -1,30 +1,36 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig\Laminas\View;
 
-use Psr\Container\ContainerInterface;
+use Exception;
 use Laminas\View\HelperPluginManager;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Class HelperPluginManagerFactory
- * @package Dot\Twig\Laminas\View
- */
+use function array_key_exists;
+
 class HelperPluginManagerFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @return HelperPluginManager
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws Exception
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): HelperPluginManager
     {
-        $config = $container->get('config')['view_helpers'];
-        return new HelperPluginManager($container, $config);
+        if (! $container->has('config')) {
+            throw new Exception('Unable to find config');
+        }
+
+        $config = $container->get('config');
+
+        if (! array_key_exists('view_helpers', $config)) {
+            throw new Exception('Unable to find view_helpers config');
+        }
+
+        return new HelperPluginManager($container, $config['view_helpers']);
     }
 }

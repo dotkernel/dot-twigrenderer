@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dot\Twig\Extension\Translation;
 
 use Twig\Error\SyntaxError;
@@ -10,26 +12,17 @@ use Twig\Node\TextNode;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
-/**
- * Class TransTokenParser
- * @package Dot\Twig\Extension\Translation
- */
 class TransTokenParser extends AbstractTokenParser
 {
-    /**
-     * @param Token $token
-     * @return TransNode|Node
-     * @throws SyntaxError
-     */
-    public function parse(Token $token)
+    public function parse(Token $token): TransNode
     {
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();
-        $count = null;
+        $count  = null;
         $plural = null;
-        $notes = null;
+        $notes  = null;
 
-        if (!$stream->test(Token::BLOCK_END_TYPE)) {
+        if (! $stream->test(Token::BLOCK_END_TYPE)) {
             $body = $this->parser->getExpressionParser()->parseExpression();
         } else {
             $stream->expect(Token::BLOCK_END_TYPE);
@@ -58,38 +51,25 @@ class TransTokenParser extends AbstractTokenParser
         return new TransNode($body, $plural, $count, $notes, $lineno, $this->getTag());
     }
 
-    /**
-     * @param Token $token
-     * @return bool
-     */
-    public function decideForFork(Token $token)
+    public function decideForFork(Token $token): bool
     {
         return $token->test(['plural', 'notes', 'endtrans']);
     }
 
-    /**
-     * @param Token $token
-     * @return bool
-     */
-    public function decideForEnd(Token $token)
+    public function decideForEnd(Token $token): bool
     {
         return $token->test('endtrans');
     }
 
-    /**
-     * @return string
-     */
-    public function getTag()
+    public function getTag(): string
     {
         return 'trans';
     }
 
     /**
-     * @param Node $body
-     * @param $lineno
      * @throws SyntaxError
      */
-    private function checkTransString(Node $body, $lineno)
+    private function checkTransString(Node $body, mixed $lineno): void
     {
         foreach ($body as $i => $node) {
             if (
@@ -101,7 +81,7 @@ class TransTokenParser extends AbstractTokenParser
             }
 
             throw new SyntaxError(
-                sprintf('The text to be translated with "trans" can only contain references to simple variables'),
+                'The text to be translated with "trans" can only contain references to simple variables',
                 $lineno
             );
         }

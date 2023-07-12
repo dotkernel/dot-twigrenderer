@@ -1,30 +1,34 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig\Factory;
 
 use Dot\Twig\Extension\AuthenticationExtension;
-use Psr\Container\ContainerInterface;
+use Exception;
 use Laminas\Authentication\AuthenticationServiceInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Class AuthenticationExtensionFactory
- * @package Dot\Twig\Factory
- */
+use function sprintf;
+
 class AuthenticationExtensionFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @return AuthenticationExtension
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws Exception
      */
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container): AuthenticationExtension
     {
-        return new AuthenticationExtension($container->get(AuthenticationServiceInterface::class));
+        $service = $container->has(AuthenticationServiceInterface::class) ?
+            $container->get(AuthenticationServiceInterface::class) : null;
+
+        if (! $service instanceof AuthenticationServiceInterface) {
+            throw new Exception(sprintf('Unable to find %s', AuthenticationServiceInterface::class));
+        }
+
+        return new AuthenticationExtension($service);
     }
 }

@@ -1,11 +1,6 @@
 <?php
-/**
- * @see https://github.com/dotkernel/dot-twigrenderer/ for the canonical source repository
- * @copyright Copyright (c) 2017 Apidemia (https://www.apidemia.com)
- * @license https://github.com/dotkernel/dot-twigrenderer/blob/master/LICENSE.md MIT License
- */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Dot\Twig;
 
@@ -29,17 +24,12 @@ use Laminas\ServiceManager\Proxy\LazyServiceFactory;
 use Laminas\View\HelperPluginManager;
 use Twig\Environment;
 
-/**
- * Class ConfigProvider
- * @package Dot\Twig
- */
 class ConfigProvider
 {
     public function __invoke(): array
     {
         return [
             'dependencies' => $this->getDependencyConfig(),
-
             'view_helpers' => [],
         ];
     }
@@ -47,43 +37,37 @@ class ConfigProvider
     public function getDependencyConfig(): array
     {
         return [
-            'factories' => [
-                HelperPluginManager::class => HelperPluginManagerFactory::class,
-
+            'factories'     => [
+                HelperPluginManager::class     => HelperPluginManagerFactory::class,
                 AuthenticationExtension::class => AuthenticationExtensionFactory::class,
-                AuthorizationExtension::class => AuthorizationExtensionFactory::class,
-                NavigationExtension::class => NavigationExtensionFactory::class,
+                AuthorizationExtension::class  => AuthorizationExtensionFactory::class,
+                NavigationExtension::class     => NavigationExtensionFactory::class,
                 FlashMessengerExtension::class => FlashMessengerExtensionFactory::class,
-                FormElementsExtension::class => InvokableFactory::class,
-                AuthenticationService::class => AuthenticationServiceFactory::class
+                FormElementsExtension::class   => InvokableFactory::class,
+                AuthenticationService::class   => AuthenticationServiceFactory::class,
             ],
-
-            'delegators' => [
-                Environment::class => [
+            'delegators'    => [
+                Environment::class            => [
                     TwigEnvironmentDelegator::class,
                 ],
-
                 FlashMessengerRenderer::class => [
                     LazyServiceFactory::class,
                 ],
-                NavigationRenderer::class => [
+                NavigationRenderer::class     => [
                     LazyServiceFactory::class,
-                ]
+                ],
             ],
-
             'lazy_services' => [
                 'class_map' => [
-                    NavigationRenderer::class =>
-                        NavigationRenderer::class,
-
-                    FlashMessengerRenderer::class =>
-                        FlashMessengerRenderer::class,
-                ]
+                    NavigationRenderer::class
+                        => NavigationRenderer::class,
+                    FlashMessengerRenderer::class
+                        => FlashMessengerRenderer::class,
+                ],
             ],
-
-            'aliases' => [
-                'ViewHelperManager' => HelperPluginManager::class,
-                AuthenticationServiceInterface::class => AuthenticationService::class
+            'aliases'       => [
+                'ViewHelperManager'                   => HelperPluginManager::class,
+                AuthenticationServiceInterface::class => AuthenticationService::class,
             ],
         ];
     }
