@@ -40,7 +40,7 @@ class NavigationExtension extends AbstractExtension
 
     public function renderMenu(NavigationContainer|string $container): string
     {
-        return $this->navigationRenderer->render($container);
+        return $this->navigationRenderer->render($container, '');
     }
 
     public function renderMenuPartial(
