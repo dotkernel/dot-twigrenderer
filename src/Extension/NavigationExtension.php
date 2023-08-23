@@ -49,31 +49,17 @@ class NavigationExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param Page $page
-     * @return mixed
-     */
     public function htmlAttributes(Page $page): string
     {
         return $this->navigationRenderer->htmlAttributes($page->getAttributes());
     }
 
-    /**
-     * @param string|NavigationContainer $container
-     * @return string
-     */
-    public function renderMenu($container): string
+    public function renderMenu(string|NavigationContainer $container, string $template = '', array $params = []): string
     {
-        return $this->navigationRenderer->render($container);
+        return $this->navigationRenderer->render($container, $template, $params);
     }
 
-    /**
-     * @param string|NavigationContainer $container
-     * @param string $partial
-     * @param array $params
-     * @return string
-     */
-    public function renderMenuPartial($container, string $partial, array $params = []): string
+    public function renderMenuPartial(string|NavigationContainer $container, string $partial, array $params = []): string
     {
         return $this->navigationRenderer->renderPartial($container, $partial, $params);
     }
