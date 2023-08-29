@@ -11,5 +11,6 @@ DotKernel component providing twig extensions and customizations
 [![GitHub license](https://img.shields.io/github/license/dotkernel/dot-twigrenderer)](https://github.com/dotkernel/dot-twigrenderer/blob/3.0/LICENSE.md)
 
 [![Build Static](https://github.com/dotkernel/dot-twigrenderer/actions/workflows/static-analysis.yml/badge.svg?branch=3.0)](https://github.com/dotkernel/dot-twigrenderer/actions/workflows/static-analysis.yml)
+[![codecov](https://codecov.io/gh/dotkernel/dot-twigrenderer/graph/badge.svg?token=M2WTS4DCKX)](https://codecov.io/gh/dotkernel/dot-twigrenderer)
 
 [![SymfonyInsight](https://insight.symfony.com/projects/b9a7d75d-d00a-44a9-b1c0-aea8670681cc/big.svg)](https://insight.symfony.com/projects/b9a7d75d-d00a-44a9-b1c0-aea8670681cc)
