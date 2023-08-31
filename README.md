@@ -1,6 +1,6 @@
 # dot-twigrenderer
 
-DotKernel component providing twig extensions and customizations
+DotKernel component providing twig extensions and customizations.
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-twigrenderer)
 ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.4.1)
