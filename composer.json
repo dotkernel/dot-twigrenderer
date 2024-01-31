@@ -24,7 +24,6 @@
         "dotkernel/dot-navigation": "^3.4.2",
         "dotkernel/dot-flashmessenger": "^3.4.2",
         "laminas/laminas-form": "^3.19.1",
-        "doctrine/doctrine-module": "^6.1.0",
         "dotkernel/dot-authorization": "^3.4.1"
     },
     "require-dev": {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Dot\Twig;
 
-use DoctrineModule\Service\Authentication\AuthenticationServiceFactory;
 use Dot\FlashMessenger\View\FlashMessengerRenderer;
 use Dot\Navigation\View\NavigationRenderer;
 use Dot\Twig\Extension\AuthenticationExtension;
@@ -44,7 +43,6 @@ class ConfigProvider
                 NavigationExtension::class     => NavigationExtensionFactory::class,
                 FlashMessengerExtension::class => FlashMessengerExtensionFactory::class,
                 FormElementsExtension::class   => InvokableFactory::class,
-                AuthenticationService::class   => AuthenticationServiceFactory::class,
             ],
             'delegators'    => [
                 Environment::class            => [

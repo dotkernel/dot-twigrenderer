@@ -12,7 +12,6 @@ use Dot\Twig\Extension\AuthorizationExtension;
 use Dot\Twig\Extension\FlashMessengerExtension;
 use Dot\Twig\Extension\FormElementsExtension;
 use Dot\Twig\Extension\NavigationExtension;
-use Laminas\Authentication\AuthenticationService;
 use Laminas\Authentication\AuthenticationServiceInterface;
 use Laminas\View\HelperPluginManager;
 use PHPUnit\Framework\TestCase;
@@ -41,7 +40,6 @@ class ConfigProviderTest extends TestCase
         $this->assertArrayHasKey(NavigationExtension::class, $this->config['dependencies']['factories']);
         $this->assertArrayHasKey(FlashMessengerExtension::class, $this->config['dependencies']['factories']);
         $this->assertArrayHasKey(FormElementsExtension::class, $this->config['dependencies']['factories']);
-        $this->assertArrayHasKey(AuthenticationService::class, $this->config['dependencies']['factories']);
     }
 
     public function testDependenciesHasAliases(): void
