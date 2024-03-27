@@ -1,3 +1,20 @@
+## 2.9.3 - 2024-27-03
+
+### Changed
+* Bumped to php 8.3
+
+### Added
+* Nothing
+
+### Deprecated
+* Nothing
+
+### Removed
+* Nothing
+
+### Fixed
+* Nothing
+
 ## 2.0.0 - 2020-01-30
 
 ### Changed
