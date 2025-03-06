@@ -25,7 +25,7 @@ class AuthenticationExtensionTest extends TestCase
 
     public function testCreate(): void
     {
-        $this->assertInstanceOf(AuthenticationExtension::class, $this->extension);
+        $this->assertSame(AuthenticationExtension::class, $this->extension::class);
     }
 
     public function testFunctions(): void

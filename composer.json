@@ -1,7 +1,7 @@
 {
     "name": "dotkernel/dot-twigrenderer",
     "type": "library",
-    "description": "DotKernel component providing twig extensions and customization",
+    "description": "Dotkernel component providing twig extensions and customization",
     "license": "MIT",
         "keywords": [
         "twig",
@@ -11,7 +11,7 @@
     ],
     "authors": [
         {
-            "name": "DotKernel Team",
+            "name": "Dotkernel Team",
             "email": "team@dotkernel.com"
         }
     ],
@@ -27,9 +27,10 @@
         "dotkernel/dot-authorization": "^3.4.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.5.7",
         "laminas/laminas-coding-standard": "^2.5",
-        "vimeo/psalm": "^5.19.1"
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^10.5.7"
     },
     "autoload": {
         "psr-4": {
@@ -50,12 +51,12 @@
     "scripts": {
         "check": [
             "@cs-check",
-            "@test"
+            "@test",
+            "@static-analysis"
         ],
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
-        "static-analysis": "psalm --shepherd --stats"
+        "static-analysis": "phpstan analyse --memory-limit 1G"
     }
 }

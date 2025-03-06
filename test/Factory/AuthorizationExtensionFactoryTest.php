@@ -62,6 +62,6 @@ class AuthorizationExtensionFactoryTest extends TestCase
 
         $factory = (new AuthorizationExtensionFactory())($this->container);
 
-        self::assertInstanceOf(AuthorizationExtension::class, $factory);
+        self::assertSame(AuthorizationExtension::class, $factory::class);
     }
 }

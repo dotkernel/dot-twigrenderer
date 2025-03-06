@@ -25,7 +25,7 @@ class FlashMessengerExtensionTest extends TestCase
 
     public function testCreate(): void
     {
-        $this->assertInstanceOf(FlashMessengerExtension::class, $this->extension);
+        $this->assertSame(FlashMessengerExtension::class, $this->extension::class);
     }
 
     public function testFunctions(): void

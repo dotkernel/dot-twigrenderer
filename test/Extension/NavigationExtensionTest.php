@@ -27,7 +27,7 @@ class NavigationExtensionTest extends TestCase
 
     public function testCreate(): void
     {
-        $this->assertInstanceOf(NavigationExtension::class, $this->extension);
+        $this->assertSame(NavigationExtension::class, $this->extension::class);
     }
 
     public function testFunctions(): void

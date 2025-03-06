@@ -25,7 +25,7 @@ nav:
           - "Navigation Extension": v3/examples/example-navigation-ext.md
           - "Translation Extension": v3/examples/example-translation-ext.md
 site_name: dot-twigrenderer
-site_description: "DotKernel component providing twig extensions and customizations"
+site_description: "Dotkernel component providing twig extensions and customizations"
 repo_url: "https://github.com/dotkernel/dot-twigrenderer"
 plugins:
   - search

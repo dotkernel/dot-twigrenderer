@@ -85,6 +85,6 @@ class HelperPluginManagerFactoryTest extends TestCase
 
         $factory = (new HelperPluginManagerFactory())($this->container);
 
-        $this->assertInstanceOf(HelperPluginManager::class, $factory);
+        $this->assertSame(HelperPluginManager::class, $factory::class);
     }
 }
