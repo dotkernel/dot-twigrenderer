@@ -14,7 +14,6 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use function PHPUnit\Framework\assertSame;
 use function sprintf;
 
 class AuthenticationExtensionFactoryTest extends TestCase
@@ -63,6 +62,6 @@ class AuthenticationExtensionFactoryTest extends TestCase
 
         $factory = (new AuthenticationExtensionFactory())($this->container);
 
-        assertSame(AuthenticationExtension::class, $factory::class);
+        $this->assertSame(AuthenticationExtension::class, $factory::class);
     }
 }

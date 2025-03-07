@@ -6,7 +6,7 @@ The `local.php.dist` file in [frontend](https://github.com/dotkernel/frontend/bl
 
 To apply the translations
 
-- the twig templates need either `{% trans 'translateText' %}` or `{{ translateText|trans }}`
+- the Twig templates need either `{% trans 'translateText' %}` or `{{ translateText|trans }}`
 - then the js file needs `translateText("translateText")`
 
 **NOTE:**

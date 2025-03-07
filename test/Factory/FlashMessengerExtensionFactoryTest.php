@@ -63,6 +63,6 @@ class FlashMessengerExtensionFactoryTest extends TestCase
 
         $factory = (new FlashMessengerExtensionFactory())($this->container);
 
-        self::assertSame(FlashMessengerExtension::class, $factory::class);
+        $this->assertSame(FlashMessengerExtension::class, $factory::class);
     }
 }

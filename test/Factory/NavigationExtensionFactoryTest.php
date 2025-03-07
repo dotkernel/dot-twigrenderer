@@ -63,6 +63,6 @@ class NavigationExtensionFactoryTest extends TestCase
 
         $factory = (new NavigationExtensionFactory())($this->container);
 
-        self::assertSame(NavigationExtension::class, $factory::class);
+        $this->assertSame(NavigationExtension::class, $factory::class);
     }
 }

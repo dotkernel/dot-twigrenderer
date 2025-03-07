@@ -1,9 +1,9 @@
 {
     "name": "dotkernel/dot-twigrenderer",
     "type": "library",
-    "description": "Dotkernel component providing twig extensions and customization",
+    "description": "Dotkernel component providing Twig extensions and customization",
     "license": "MIT",
-        "keywords": [
+    "keywords": [
         "twig",
         "laminas",
         "mezzio",
@@ -27,7 +27,7 @@
         "dotkernel/dot-authorization": "^3.4.1"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "^2.5",
+        "laminas/laminas-coding-standard": "^3.0",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpunit/phpunit": "^10.5.7"

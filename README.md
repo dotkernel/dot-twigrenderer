@@ -1,17 +1,17 @@
 # dot-twigrenderer
 
-Dotkernel component providing twig extensions and customizations.
+Dotkernel component providing Twig extensions and customizations.
 
 > dot-twigrenderer is a wrapper on top of [mezzio/mezzio-twigrenderer](https://github.com/mezzio/mezzio-twigrenderer)
 
 ## Documentation
 
-Documentation is available at: https://docs.dotkernel.org/dot-auth-social/.
+Documentation is available at: https://docs.dotkernel.org/dot-twigrenderer/.
 
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-twigrenderer)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.5.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.6.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-twigrenderer)](https://github.com/dotkernel/dot-twigrenderer/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-twigrenderer)](https://github.com/dotkernel/dot-twigrenderer/network)
