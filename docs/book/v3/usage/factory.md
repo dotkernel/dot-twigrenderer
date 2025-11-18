@@ -1,12 +1,10 @@
-# Method #1 - Factory
+# Method #1: Factory
 
 ## Step 1: Create a factory that retrieves the SessionManger from the container
 
 ```php
 class ExampleFactory
 {
-    // code
-    
     public function __invoke(ContainerInterface $container)
     {
         return new ExampleService(
@@ -19,7 +17,6 @@ class ExampleFactory
 ## Step 2: Access through your Service
 
 ```php
-
 class ExampleService
 {
     private TemplateRendererInterface $template;
@@ -28,8 +25,6 @@ class ExampleService
     {
         $this->template = $template;
     }
-    
-     //your methods
 }
 ```
 
@@ -39,15 +34,9 @@ Open the ConfigProvider of the module where your repository resides.
 
 Add a new entry under `factories`, where the key is your service's FQCN and the value is your factory's FQCN.
 
-See below example for a better understanding of the file structure.
+See the below example for a better understanding of the file structure.
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace YourApp;
-
 class ConfigProvider
 {
     public function __invoke(): array

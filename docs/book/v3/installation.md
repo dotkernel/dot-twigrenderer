@@ -2,4 +2,6 @@
 
 Run the following command in your project folder
 
-    composer require dotkernel/dot-twigrenderer
+```shell
+composer require dotkernel/dot-twigrenderer
+```
