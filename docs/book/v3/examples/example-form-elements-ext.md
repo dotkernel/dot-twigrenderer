@@ -1,6 +1,6 @@
 # Using the form elements extension
 
-Dot-twigrenderer extends Twig with a function based on `TwigTest` that checks if each `Form` element is an instance of its class.
+DotTwigrenderer extends Twig with a function based on `TwigTest` that checks if each `Form` element is an instance of its class.
 
 ```php
 public function getTests(): array;

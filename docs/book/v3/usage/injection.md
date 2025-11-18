@@ -1,6 +1,6 @@
-# Method #2 - Injection
+# Method #2: Injection
 
-If you are using [dot-annotated-services](https://github.com/dotkernel/dot-annotated-services/) in your project, you don't need to create a separate factory, just follow the below steps.
+If you are using [dot-annotated-services](https://github.com/dotkernel/dot-annotated-services/) in your project, you don't need to create a separate factory, follow the below steps.
 
 ## Step 1: Access through your Service
 
@@ -9,7 +9,7 @@ If you are using [dot-annotated-services](https://github.com/dotkernel/dot-annot
 class ExampleService
 {
     private TemplateRendererInterface $template;
-    
+
     /**
      * @Dot\AnnotatedServices\Annotation\Inject({
      *     TemplateRendererInterface::class,

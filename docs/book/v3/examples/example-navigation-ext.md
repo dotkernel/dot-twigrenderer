@@ -5,13 +5,13 @@ Dot-twigrenderer extends Twig with functions that use functionality from [dotker
 ```php
 public function htmlAttributes(Page $page): string;
 
-public function renderMenu(NavigationContainer|string $container): string; //incomplete?
+public function renderMenu(NavigationContainer|string $container): string;
 
 public function renderMenuPartial(
-        NavigationContainer|string $container,
-        string $partial,
-        array $params = []
-    ): string;
+    NavigationContainer|string $container,
+    string $partial,
+    array $params = []
+): string;
 ```
 
 * `$partial` is the template file name
