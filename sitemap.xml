@@ -2,62 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/configuration/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/installation/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/overview/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/usage/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-authentication-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-authorization-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-date-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-flash-messenger-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-form-elements-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-navigation-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/examples/example-translation-ext/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/usage/factory/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://docs.dotkernel.org/dot-twigrenderer/v3/usage/injection/</loc>
-         <lastmod>2025-03-08</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
 </urlset>
