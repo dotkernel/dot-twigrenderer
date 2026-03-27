@@ -11,7 +11,7 @@ Documentation is available at: https://docs.dotkernel.org/dot-twigrenderer/.
 ## Badges
 
 ![OSS Lifecycle](https://img.shields.io/osslifecycle/dotkernel/dot-twigrenderer)
-![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.7.0)
+![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.8.0)
 
 [![GitHub issues](https://img.shields.io/github/issues/dotkernel/dot-twigrenderer)](https://github.com/dotkernel/dot-twigrenderer/issues)
 [![GitHub forks](https://img.shields.io/github/forks/dotkernel/dot-twigrenderer)](https://github.com/dotkernel/dot-twigrenderer/network)
