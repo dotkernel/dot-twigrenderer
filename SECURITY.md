@@ -4,7 +4,7 @@
 
 | Version | Supported          | PHP Version                                                                                                      |
 |---------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| 3.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.7.0) |
+| 3.x     | :white_check_mark: | ![PHP from Packagist (specify version)](https://img.shields.io/packagist/php-v/dotkernel/dot-twigrenderer/3.8.0) |
 | <= 2.x  | :x:                |                                                                                                                  |
 
 ## Reporting Potential Security Issues
