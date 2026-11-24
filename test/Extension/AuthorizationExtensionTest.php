@@ -19,7 +19,7 @@ class AuthorizationExtensionTest extends TestCase
      */
     protected function setUp(): void
     {
-        $interfaceMock   = $this->createMock(AuthorizationInterface::class);
+        $interfaceMock   = $this->createStub(AuthorizationInterface::class);
         $this->extension = new AuthorizationExtension($interfaceMock);
     }
 

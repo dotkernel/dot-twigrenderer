@@ -7,7 +7,7 @@ namespace DotTest\Twig\Extension;
 use DateTimeImmutable;
 use Dot\Twig\Extension\DateExtension;
 use Exception;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Extension\CoreExtension;
@@ -17,7 +17,7 @@ class DateExtensionTest extends TestCase
 {
     private DateExtension $extension;
 
-    private MockObject|Environment $env;
+    private Stub|Environment $env;
 
     /**
      * @throws \PHPUnit\Framework\MockObject\Exception
@@ -26,7 +26,7 @@ class DateExtensionTest extends TestCase
     {
         $this->extension = new DateExtension();
         $coreExtension   = new CoreExtension();
-        $this->env       = $this->createMock(Environment::class);
+        $this->env       = $this->createStub(Environment::class);
         $this->env->method('getExtension')->willReturn($coreExtension);
     }
 

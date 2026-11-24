@@ -21,7 +21,7 @@ class NavigationExtensionTest extends TestCase
      */
     protected function setUp(): void
     {
-        $interfaceMock   = $this->createMock(RendererInterface::class);
+        $interfaceMock   = $this->createStub(RendererInterface::class);
         $this->extension = new NavigationExtension($interfaceMock);
     }
 

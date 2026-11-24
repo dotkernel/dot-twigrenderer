@@ -54,7 +54,7 @@ class AuthenticationExtensionFactoryTest extends TestCase
             ->with(AuthenticationServiceInterface::class)
             ->willReturn(true);
 
-        $interface = $this->createMock(AuthenticationServiceInterface::class);
+        $interface = $this->createStub(AuthenticationServiceInterface::class);
         $this->container->method('get')
             ->willReturnMap([
                 [AuthenticationServiceInterface::class, $interface],

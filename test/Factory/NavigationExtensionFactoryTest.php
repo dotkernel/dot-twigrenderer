@@ -55,7 +55,7 @@ class NavigationExtensionFactoryTest extends TestCase
             ->with(RendererInterface::class)
             ->willReturn(true);
 
-        $interface = $this->createMock(RendererInterface::class);
+        $interface = $this->createStub(RendererInterface::class);
         $this->container->method('get')
             ->willReturnMap([
                 [RendererInterface::class, $interface],
